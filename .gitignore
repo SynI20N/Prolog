@@ -22,7 +22,6 @@ _UpgradeReport_Files/
 ###############
 # Directories #
 ###############
-bin/
 obj/
 TestResults/
 ###################
@@ -69,7 +68,8 @@ packages
 NuGet.exe
 _[Ss]cripts
 *.exe
-*.dll
+*EleWise.ELMA.ConfigurationModel.dll
+*EleWise.ELMA.DynamicModel.dll
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
