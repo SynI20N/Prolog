@@ -1,0 +1,14 @@
+﻿Name: Prolog.Web
+AntiForgery: disabled
+DisplayName: Пролог
+Author: Prolog
+Website: https://prolog.ltd
+Version: 3.0.0
+OrchardVersion: 1.0.20
+Description: Модуль компании пролог
+Features:
+    Prolog.Web:
+        Name: Prolog.Web
+        Description: Модуль компании пролог
+        Category: My ELMA Modules
+        Dependencies: EleWise.ELMA.BPM.Web.Content, EleWise.ELMA.BPM.Web.Common

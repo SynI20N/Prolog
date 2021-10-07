@@ -1,0 +1,36 @@
+﻿@model Tovar
+@using EleWise.ELMA.ConfigurationModel
+@using System;
+@using EleWise.ELMA.Extensions
+
+@{
+    if (!Model.Data.HasValue)
+    {
+        @(string.Empty)
+    }
+    else
+    {
+        var now = DateTime.Now;
+        var days = (Model.Data.Value - now).Days;
+        var dateLabel = Model.Data.Value.ToShortDateString();
+        var required = !(Model.Status.Id == 102 || Model.Status.Id == 4);
+
+        if (required && days >= 1 && days < 14)
+        {
+            <div style="background-color: yellow" id="ColoredDate">
+                @dateLabel
+            </div>
+        }
+        else if (required && days <= 1)
+        {
+            <div style="background-color: lightpink" id="ColoredDate">
+                @dateLabel
+            </div>
+        }
+        else
+        {
+            @dateLabel
+        }
+    }
+}
+

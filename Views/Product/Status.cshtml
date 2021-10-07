@@ -1,0 +1,54 @@
+﻿@model Tovar
+@using EleWise.ELMA.ConfigurationModel
+
+@{
+    var count = (int)(Model.Status.Id);
+    if (Model.Status.Id == 102)
+    {
+        count = 5;
+    }
+}
+
+
+<div id='@Model.Id' style="font-size: 0px">
+    @{
+        for (int i = 0; i < count; i++)
+        {
+            <button class="prolog-butten-left" value='@i' onclick="save(value, '@Model.Id', this)">C</button>
+        }
+        <button class="prolog-butten-centr" value='@Model.Status.Id' onclick="save(value, '@Model.Id', this)">C</button>
+        for (int i = count + 1; i < 6; i++)
+        {
+            if (i == 5)
+            {
+                <button class="prolog-butten-right" value='102' onclick="save(value, '@Model.Id', this)">C</button>
+                continue;
+            }
+            <button class="prolog-butten-right" value='@i' onclick="save(value, '@Model.Id', this)">C</button>
+        }
+    }
+    <br>
+    <span style="font-size: 12px">@Model.Status</span>
+</div>
+
+
+<script>
+
+	var cachedText = "";
+
+	function save(statusID, productID, element)
+	{
+		var info = { status: statusID, id: productID };
+		$.ajax({
+		  type: "POST",
+		  url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateStatus',
+		  data: info,
+		  success: function(resultData) {
+              cachedText = '<br>' + '<span style="font-size: 12px; background-color:yellow; font-weight: 700">' + resultData + '</span>';
+              element.parentElement.innerHTML = resultData + cachedText;
+		      setTimeout(function() {document.getElementById(productID).innerHTML = document.getElementById(productID).innerHTML.replace(cachedText,"");}, 2000);
+		  },
+		  dataType: "html"
+		});
+	}
+</script>

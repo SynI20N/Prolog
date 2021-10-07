@@ -1,0 +1,13 @@
+﻿@using EleWise.ELMA
+@using Prolog.Web.Portlets
+@model Prolog.Web.Portlets.ProductsPortletPersonalization
+
+@using (Html.TableForm(EleWise.ELMA.Model.Views.ViewType.Edit))
+{
+    <tr>
+        <td class="captionCell">@SR.T("Ответственный")</td>
+        <td>
+            @Html.Editor(m => m.Responsible)
+        </td>
+    </tr>
+}

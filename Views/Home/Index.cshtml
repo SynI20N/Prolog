@@ -1,0 +1,18 @@
+﻿@using Prolog.Web
+@using EleWise.ELMA.Web.Mvc.Html
+
+@{
+    Html.Toolbar()
+        .Group("info")
+	.Button(b => b
+            .Uid("show-info")
+            .Text(SR.T("Как пользоваться?"))
+            .ToolTip(SR.T("Дополнительная справка по странице"))
+            .IconUrl(RouteProvider.ImagesFolder + "x32/question.png")
+            .Visible(true)
+	    .Click("showAdditionalInfo();")
+        );
+}
+
+<br>
+@Html.InfoPanel("На этой странице вы можете посмотреть различные представления данных из базы")

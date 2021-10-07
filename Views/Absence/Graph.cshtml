@@ -1,0 +1,235 @@
+﻿@using EleWise.ELMA.Web.Mvc.Views.ViewItem
+@using EleWise.ELMA.API
+@using EleWise.ELMA.Web.Mvc.Html
+@using EleWise.ELMA.Model.Managers
+@using EleWise.ELMA.Security.Models
+@using EleWise.ELMA;
+@using System.Linq;
+@using System.Linq.Expressions;
+@using System;
+@using System.Collections.Generic;
+@using System.Globalization;
+@using System.Threading;
+@using System.Reflection;
+@using Prolog.Web;
+
+@{
+    Html.Header(SR.T("График отсутствий сотрудников"));
+
+    Html.Toolbar()
+        .Back(true, Url.Action("Index", "Home"))
+        .Group("toolbar-group-resume")
+        .Button(b => b
+            .Uid("add-absence")
+            .Text(SR.T("Добавить"))
+            .ToolTip(SR.T("Позволяет вам добавить отсутствие сотрудника на график"))
+            .IconUrl(RouteProvider.ImagesFolder + "x32/add.png")
+            .Visible(true)
+        .Url(Url.Action("Create", "Absence", new { area = "EleWise.ELMA.BPM.Web.Security" }))
+        )
+    .Button(b => b
+            .Uid("delete-absence")
+            .Text(SR.T("Убрать"))
+            .ToolTip(SR.T("Позволяет вам удалить отсутствие сотрудника из базы данных"))
+            .IconUrl(RouteProvider.ImagesFolder + "x32/delete.png")
+            .Visible(true)
+        .Url(Url.Action("Delete", "Absence"))
+        );
+
+}
+
+<div class="absencegraph">
+
+    <div class="filtersBar">
+        <table>
+            <tr>
+                <td>
+                    <b style="margin-left: 10px">Дата начала:</b>
+                    <input class="gtaskcell" style="margin-top: 10px" type="date" id="OnDateMinChange">
+                </td>
+                <td>
+                    <b style="margin-left: 20px">Дата конца:</b>
+                    <input class="gtaskcell" style="margin-top: 10px" type="date" id="OnDateMaxChange">
+                </td>
+                <td>
+                    <b style="margin-left: 20px">Отдел:</b>
+                    <select name"division" class="gtaskcell" style="margin-top: 14px" id="OnDepartmentChange">
+                        <option value="All" style="background-color: DarkGrey">Все</option>
+                        @foreach (var d in @GetDepartments(p => p.ItemType == 0 && p.IsDeleted != true))
+                        {
+                            <option value="@d.Name">@d.Name</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="position:relative; background-color:white; border: 1px Gainsboro solid;" class="gantt" id="GanttChartDIV"></div>
+
+</div>
+
+<script>
+
+	var g = new JSGantt.GanttChart(document.getElementById('GanttChartDIV'), 'day');
+	var minDateGlobal = Date.now();
+	var maxDateGlobal = '';
+	var departmentGlobal = '';
+
+	document.getElementById("OnDateMinChange").value = "@DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd")";
+	document.getElementById("OnDepartmentChange").value = "@GetDepartmentByUser(PublicAPI.Portal.Security.User.GetCurrentUser())";
+
+	g.setOptions({
+	  vLang: 'ru',
+	  vShowComp: 0,
+	  vShowRes: 0,
+	  vShowStartDate: 0,
+	  vShowEndDate: 0,
+	  vShowDur: 0,
+	  vShowTaskInfoRes: 0,
+      vShowTaskInfoDur: 0,
+      vShowTaskInfoComp: 0,
+      vEvents:{
+      	afterDraw: () => {
+      		var l = $('[class*="gchartlbl"]');
+		  	var c = $('[class*="td_container"]');
+		  	c.scroll(function()
+		  	{
+		    	if(c.scrollTop() > 110)
+		    	{
+		    		l.css('top', c.scrollTop() - 110);
+		    	}
+		    	else
+		    	{
+		    		l.css('top', 0);
+		    	}
+			});
+			adjustPortletWidth();
+		}
+      },
+	});
+
+	redraw();
+
+	function formatDescription(description)
+	{
+		var result = '';
+		if(description.includes("\n"))
+		{
+			var parts = description.split("\n");
+			for(i = 0; i< parts.length; i++)
+			{
+				result += parts[i] + '<br>';
+			}
+		}
+		return result;
+	}
+
+	function addAbs(ID, fullName, startDate, endDate, grounds, barText, description, userDepartment)
+	{
+		if(userDepartment === departmentGlobal || departmentGlobal === "All")
+		{
+			g.AddTaskItemObject({
+			  pID: ID,
+			  pName:
+		"<a href=@Url.Action("Profile", "User", new { area = "EleWise.ELMA.BPM.Web.Security" })" + '/' + ID + '>' + fullName + '</a>',
+			  pStart: startDate,
+			  pEnd: endDate,
+			  pClass: grounds,
+			  pOpen: 1,
+			  pBarText: barText,
+			  pMinDate: minDateGlobal,
+			  pMaxDate: maxDateGlobal,
+			  pNotes: formatDescription(description),
+			});
+		}
+	}
+
+  	function redraw() {
+  		minDateGlobal = document.getElementById("OnDateMinChange").valueAsDate;
+	  	maxDateGlobal = document.getElementById("OnDateMaxChange").valueAsDate;
+	  	departmentGlobal = document.getElementById("OnDepartmentChange").value;
+	  	g.ClearTasks();
+		fillList();
+		g.Draw();
+	};
+
+	function fillList() {
+	  	@foreach(var abs in @GetAbsences(p => p.User != null))
+		{
+			@:addAbs('@abs.User.Id','@abs.User.FullName','@GetDateFormat(abs.StartDate)','@GetDateFormat(abs.EndDate)','@GetColorClass(abs.Grounds)','@GetName(abs.Grounds)', "@abs.Description", '@GetDepartmentByUser(abs.User)');
+		}
+	};
+
+	function adjustPortletWidth() {
+		var gmainright = $('[class*="gmainright"]');
+	  	gmainright[0].style.width = ($(window).width() - 550) + 'px';
+	};
+
+	document.getElementById("OnDateMinChange").addEventListener('change', redraw);
+	document.getElementById("OnDateMaxChange").addEventListener('change', redraw);
+	document.getElementById("OnDepartmentChange").addEventListener('change', redraw);
+
+</script>
+
+@functions{
+
+    public ICollection<Absence> GetAbsences(Expression<Func<Absence, bool>> condition)
+    {
+        var manager = EntityManager<Absence>.Instance;
+        var absences = manager.Find(condition);
+        return absences.OrderBy(x => x.User.LastName).ToList();
+    }
+
+    public ICollection<OrganizationItem> GetDepartments(Expression<Func<OrganizationItem, bool>> condition)
+    {
+        var manager = EntityManager<OrganizationItem>.Instance;
+        var departments = manager.Find(condition);
+        return departments.OrderBy(x => x.Name).ToList();
+    }
+
+    public string GetDepartmentByUser(User user)
+    {
+        var manager = EntityManager<OrganizationItem>.Instance;
+        OrganizationItem Division = manager.Find(p => p.UsersHash.Contains(user.Id.ToString())).FirstOrDefault();
+        if (Division == null)
+        {
+            return "All";
+        }
+        while (Division.ParentItem != null && Division.ItemType != OrganizationItemType.Department)
+        {
+            Division = Division.ParentItem;
+        }
+        return Division.Name;
+    }
+
+    public string GetDateFormat(DateTime date)
+    {
+        return Convert.ToDateTime(date).ToString("yyyy-MM-dd");
+    }
+
+    public string GetColorClass(GroundsForAbsence grounds)
+    {
+        if (grounds == null)
+        {
+            return "gtaskred";
+        }
+        switch (grounds.Id)
+        {
+            case 1: return "gtaskgreen";
+            case 2: return "gtaskyellow";
+            case 3: return "gtaskpurple";
+            case 4: return "gtaskblue";
+        }
+        return "gtaskred";
+    }
+
+    public string GetName(GroundsForAbsence grounds)
+    {
+        if (grounds == null)
+        {
+            return "Без уважительной причины";
+        }
+        return grounds.Name;
+    }
+}

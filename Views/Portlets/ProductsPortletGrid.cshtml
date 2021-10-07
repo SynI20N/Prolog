@@ -1,0 +1,22 @@
+﻿@using Prolog.Web
+@using EleWise.ELMA
+@using EleWise.ELMA.Services
+@using EleWise.ELMA.BPM.Web.Common.Extensions
+@using EleWise.ELMA.BPM.Web.Common.Models
+@using EleWise.ELMA.ConfigurationModel
+@using EleWise.ELMA.Web.Mvc.Html
+@using System.Collections.Generic
+@model GridDataFilter<ITovar>
+
+
+    @(Html.FilterDynamicGrid(Model)
+    .WithDefaultSettings()
+    .Columns(c =>
+    {
+        c.For(m => m.Status).Template(m => m.Status != null ? Html.Partial("Product/Status", m) : MvcHtmlString.Empty);
+        c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Product/Date", m) : MvcHtmlString.Empty);
+    })
+    .DefaultColumns()
+    .Resizeable(true)
+    .Reorderable(true)
+    .Action("PortletGrid"))

@@ -1,0 +1,13 @@
+﻿@using Prolog.Web
+@using Prolog.Web.Models 
+@using EleWise.ELMA
+@using EleWise.ELMA.Services
+@using EleWise.ELMA.BPM.Web.Common.Extensions
+@using EleWise.ELMA.BPM.Web.Common.Models
+@using EleWise.ELMA.ConfigurationModel
+@using EleWise.ELMA.Web.Mvc.Html
+@using System.Collections.Generic
+@model ProductsPortletModel
+
+
+@Html.Action("PortletGrid", "Products", new { area = RouteProvider.AreaName })
