@@ -5,10 +5,9 @@
 *.class
 *.dll
 *.exe
-*.pdb
-*.dll.config
 *.cache
 *.suo
+!*Prolog.Web.dll
 # Include dlls if they’re in the NuGet packages directory
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
@@ -57,7 +56,6 @@ TestResults/
 ehthumbs.db
 Icon?
 Thumbs.db
-[Bb]in
 [Oo]bj
 [Tt]est[Rr]esults
 *.suo
@@ -68,8 +66,6 @@ packages
 NuGet.exe
 _[Ss]cripts
 *.exe
-*EleWise.ELMA.ConfigurationModel.dll
-*EleWise.ELMA.DynamicModel.dll
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
