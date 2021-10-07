@@ -13,8 +13,8 @@
     .WithDefaultSettings()
     .Columns(c =>
     {
-        c.For(m => m.Status).Template(m => m.Status != null ? Html.Partial("Product/Status", m) : MvcHtmlString.Empty);
-        c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Product/Date", m) : MvcHtmlString.Empty);
+        c.For(m => m.Status).Template(m => m.Status != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Status", m) : MvcHtmlString.Empty);
+        c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Date", m) : MvcHtmlString.Empty);
     })
     .DefaultColumns()
     .Resizeable(true)

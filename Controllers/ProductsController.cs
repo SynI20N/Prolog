@@ -19,7 +19,7 @@ namespace Prolog.Web.Controllers
         public ActionResult ProductsPortlet(ProductsPortletPersonalization settings)
         {
             var model = new ProductsPortletModel { Responsible = settings.Responsible };
-            return PartialView("Portlets/ProductsPortlet", model);
+            return PartialView("Portlets/ProductsPortlet/Index", model);
         }
 
         [CustomGridAction]
@@ -29,7 +29,7 @@ namespace Prolog.Web.Controllers
             IUser user = PublicAPI.Portal.Security.User.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             var list = CreateGridData(command, filter);
-            return PartialView("Portlets/ProductsPortletGrid", list);
+            return PartialView("Portlets/ProductsPortlet/Grid", list);
         }
 
         [HttpPost]
@@ -46,7 +46,7 @@ namespace Prolog.Web.Controllers
             }
             product.Save();
 
-            return PartialView("Product/Status", product);
+            return PartialView("Portlets/ProductsPortlet/Partial/Status", product);
         }
 
         [HttpPost]
@@ -54,7 +54,7 @@ namespace Prolog.Web.Controllers
         {
             Tovar product = _portalHelper.UserTovar.Load(id);
 
-            return PartialView("Product/Date", product);
+            return PartialView("Portlets/ProductsPortlet/Partial/Date", product);
         }
 
     }
