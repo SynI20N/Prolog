@@ -25,14 +25,14 @@ namespace Prolog.Web.Controllers
         }
 
         [CustomGridAction]
-        /*public ActionResult PortletGrid(GridCommand command, long? filterId)
+        public ActionResult PortletGrid(GridCommand command, long? filterId)
         {
             var filter = CreateFilter(filterId);
             IUser user = _portalUser.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             var list = CreateGridData(command, filter);
             return PartialView("Portlets/ProductsPortlet/Grid", list);
-        }*/
+        }
 
         [HttpPost]
         public ActionResult UpdateStatus(long status, long id)
