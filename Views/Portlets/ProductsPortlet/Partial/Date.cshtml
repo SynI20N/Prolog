@@ -29,25 +29,23 @@
         }
         else
         {
-            <div style="background-color: black" id="ColoredDate+@Model.Id">
+            <div style="background-color: white" id="ColoredDate+@Model.Id">
                 @dateLabel
             </div>
         }
     }
-    @:updateDate(@Model.Id);
 }
 
+@:updateDate('@Model.Id');
+
 <script>
-    function updateDate(productID)
-    {
+    function updateDate(productID) {
         var i = 0;
         var element = document.getElementById(productID);
         var dateElement = document.getElementById("ColoredDate+" + productID);
         var count = element.children.count;
-        for (i = 0; i < count; i++)
-        {
-            if (element.children[i].className.includes('prolog-butten'))
-            {
+        for (i = 0; i < count; i++) {
+            if (element.children[i].className.includes('prolog-butten')) {
                 element.children[i].addEventListener('click', function () {
                     var info = { id: productID };
                     $.ajax({
