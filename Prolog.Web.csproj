@@ -84,7 +84,6 @@
     <Reference Include="EleWise.ELMA.Security">
       <HintPath>..\DLL's\EleWise.ELMA.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4" />
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>

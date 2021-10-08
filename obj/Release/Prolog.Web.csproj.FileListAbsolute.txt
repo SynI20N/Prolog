@@ -11,7 +11,6 @@ C:\C#\Prolog.Web\bin\EleWise.ELMA.SDK.Web.dll
 C:\C#\Prolog.Web\bin\EleWise.ELMA.SDK.Web.Orchard.dll
 C:\C#\Prolog.Web\bin\EleWise.ELMA.SDK.XmlSerializers.dll
 C:\C#\Prolog.Web\bin\EleWise.ELMA.Security.dll
-C:\C#\Prolog.Web\bin\Iesi.Collections.dll
 C:\C#\Prolog.Web\bin\Microsoft.Web.Infrastructure.dll
 C:\C#\Prolog.Web\bin\System.Web.Helpers.dll
 C:\C#\Prolog.Web\bin\System.Web.Mvc.dll
