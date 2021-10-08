@@ -34,21 +34,31 @@
 
 <script>
 
-	var cachedText = "";
+    var cachedText = "";
 
-	function save(statusID, productID, element)
-	{
-		var info = { status: statusID, id: productID };
-		$.ajax({
-		  type: "POST",
-		  url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateStatus',
-		  data: info,
-		  success: function(resultData) {
-              cachedText = '<br>' + '<span style="font-size: 12px; background-color:yellow; font-weight: 700">' + 'Статус изделия сохранён!' + '</span>';
-              element.parentElement.innerHTML = resultData + cachedText;
-		      setTimeout(function() {document.getElementById(productID).innerHTML = document.getElementById(productID).innerHTML.replace(cachedText,"");}, 2000);
-		  },
-		  dataType: "html"
-		});
-	}
+    function save(statusID, productID, element) {
+        var dateElement = document.getElementById("ColoredDate+" + productID);
+        var info = { status: statusID, id: productID };
+        $.ajax({
+            type: "POST",
+            url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateStatus',
+            data: info,
+            success: function (resultData) {
+                cachedText = '<br>' + '<span style="font-size: 12px; background-color:yellow; font-weight: 700">' + 'Статус изделия сохранён!' + '</span>';
+                element.parentElement.innerHTML = resultData + cachedText;
+                setTimeout(function () { document.getElementById(productID).innerHTML = document.getElementById(productID).innerHTML.replace(cachedText, ""); }, 2000);
+                var info = { id: productID };
+                $.ajax({
+                    type: "POST",
+                    url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateDate',
+                    data: info,
+                    success: function (resultData) {
+                        dateElement.innerHTML = resultData;
+                    },
+                    dataType: "html"
+                });
+            },
+            dataType: "html"
+        });
+    }
 </script>

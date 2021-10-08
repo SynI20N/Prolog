@@ -15,6 +15,7 @@
     {
         c.For(m => m.Status).Template(m => m.Status != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Status", m) : MvcHtmlString.Empty);
         c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Date", m) : MvcHtmlString.Empty);
+        c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("View", "Catalogs", new { area = "EleWise.ELMA.BPM.Common.Web" }));
     })
     .DefaultColumns()
     .Resizeable(true)

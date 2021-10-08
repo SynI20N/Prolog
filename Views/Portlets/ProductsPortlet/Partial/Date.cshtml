@@ -35,38 +35,3 @@
         }
     }
 }
-
-<script>
-    $(document).ready(function () {
-        @{
-            @:updateDate('@Model.Id');
-        }
-    })
-    function updateDate(productID) {
-        var i = 0;
-        var element = document.getElementById(productID);
-        var dateElement = document.getElementById("ColoredDate+" + productID);
-        var count = element.children.count;
-        for (i = 0; i < count; i++) {
-            alert(element.children[i].innerHTML);
-            if (element.children[i].className.includes('prolog-butten')) {
-                alert(element.innerHTML);
-                alert(dateElement.innerHTML);
-                element.children[i].addEventListener('click', function () {
-                    var info = { id: productID };
-                    $.ajax({
-                        type: "POST",
-                        url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateDate',
-                        data: info,
-                        success: function (resultData) {
-                            dateElement.innerHTML = resultData;
-                        },
-                        dataType: "html"
-                    });
-
-                });
-            }
-        }
-    }
-</script>
-

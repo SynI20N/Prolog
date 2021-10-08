@@ -68,7 +68,7 @@ namespace Prolog.Web.Portlets
 
         public override MvcHtmlString Settings(HtmlHelper html, ProductsPortletPersonalization data, string path)
         {
-            return RenderSettingsPartialView(html, "Portlets/ProductsPortletPersonalization", data);
+            return RenderSettingsPartialView(html, "Portlets/ProductsPortlet/Personalization", data);
         }
 
         protected override Permission PortletPermission()
