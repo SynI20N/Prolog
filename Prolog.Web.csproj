@@ -200,11 +200,11 @@
     <Compile Include="Controllers\WorksController.cs" />
     <Compile Include="Menu\MenuItemProvider.cs" />
     <Compile Include="Models\ProductsPortletModel.cs" />
+    <Compile Include="Portlets\ProductsPortletPersonalization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Portlets\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
