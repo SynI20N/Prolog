@@ -15,7 +15,7 @@
     {
         c.For(m => m.Status).Template(m => m.Status != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Status", m) : MvcHtmlString.Empty);
         c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Date", m) : MvcHtmlString.Empty);
-        c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("ViewItem", "Catalogs", new { area = "EleWise.ELMA.BPM.Common.Web", uid = "f5017415-8d76-4d5d-a1d1-89eb73b69c74", id = Model.Id }));
+        c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("ViewItem", "Catalogs", new { area = "EleWise.ELMA.BPM.Web.Common", uid = "f5017415-8d76-4d5d-a1d1-89eb73b69c74", id = m.Id }));
     })
     .DefaultColumns()
     .Resizeable(true)
