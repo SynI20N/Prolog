@@ -57,12 +57,14 @@
     </Reference>
     <Reference Include="EleWise.ELMA.ConfigurationModel">
       <HintPath>..\..\ELMA3-Standart\Web\App_Data\CompiledModel\EleWise.ELMA.ConfigurationModel.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EleWise.ELMA.Content">
       <HintPath>..\DLL's\EleWise.ELMA.Content.dll</HintPath>
     </Reference>
     <Reference Include="EleWise.ELMA.DynamicModel">
       <HintPath>..\..\ELMA3-Standart\Web\App_Data\CompiledModel\EleWise.ELMA.DynamicModel.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EleWise.ELMA.SDK">
       <HintPath>..\DLL's\EleWise.ELMA.SDK.dll</HintPath>
