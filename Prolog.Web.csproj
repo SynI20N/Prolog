@@ -136,9 +136,6 @@
     <Content Include="Views\Absence\Graph.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Works\Graph.cshtml" />
-    <Content Include="Views\Portlets\ProductsPortlet\Personalization.cshtml" />
-    <Content Include="Views\Portlets\ProductsPortlet\Index.cshtml" />
-    <Content Include="Views\Portlets\ProductsPortlet\Grid.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
