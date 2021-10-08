@@ -17,20 +17,53 @@
 
         if (required && days >= 1 && days < 14)
         {
-            <div style="background-color: yellow" id="ColoredDate">
+            <div style="background-color: yellow" id="ColoredDate+@Model.Id">
                 @dateLabel
             </div>
         }
         else if (required && days <= 1)
         {
-            <div style="background-color: lightpink" id="ColoredDate">
+            <div style="background-color: lightpink" id="ColoredDate+@Model.Id">
                 @dateLabel
             </div>
         }
         else
         {
-            @dateLabel
+            <div style="background-color: black" id="ColoredDate+@Model.Id">
+                @dateLabel
+            </div>
         }
     }
+    @:updateDate(@Model.Id);
 }
+
+<script>
+    function updateDate(productID)
+    {
+        var i = 0;
+        var element = document.getElementById(productID);
+        var dateElement = document.getElementById("ColoredDate+" + productID);
+        var count = element.children.count;
+        for (i = 0; i < count; i++)
+        {
+            if (element.children[i].className.includes('prolog-butten'))
+            {
+                element.children[i].addEventListener('click', function () {
+                    var info = { id: productID };
+                    $.ajax({
+                        type: "POST",
+                        url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateDate',
+                        data: info,
+                        success: function (resultData) {
+                            dateElement.innerHTML = resultData;
+                        },
+                        dataType: "html"
+                    });
+
+                });
+            }
+        }
+
+    }
+</script>
 
