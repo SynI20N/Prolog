@@ -24,3 +24,4 @@ C:\C#\Prolog.Web\obj\Release\Prolog.Web.csproj.CopyComplete
 C:\C#\Prolog.Web\obj\Release\Prolog.Web.dll
 C:\C#\Prolog.Web\obj\Release\Prolog.Web.pdb
 C:\C#\Prolog.Web\bin\Microsoft.CSharp.dll
+C:\C#\Prolog.Web\obj\Release\Prolog.Web.csproj.AssemblyReference.cache
