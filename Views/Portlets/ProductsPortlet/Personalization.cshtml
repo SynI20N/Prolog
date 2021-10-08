@@ -7,7 +7,7 @@
     <tr>
         <td class="captionCell">@SR.T("Ответственный")</td>
         <td>
-            @Html.Editor(m => m.Responsible)
+            @Html.Editor(m => m.Responsible.FullName)
         </td>
     </tr>
 }
