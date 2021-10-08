@@ -64,12 +64,6 @@
     <Reference Include="EleWise.ELMA.DynamicModel">
       <HintPath>..\..\ELMA3-Standart\Web\App_Data\CompiledModel\EleWise.ELMA.DynamicModel.dll</HintPath>
     </Reference>
-    <Reference Include="EleWise.ELMA.EmployeeOfOrganization">
-      <HintPath>..\DLL's\EleWise.ELMA.EmployeeOfOrganization.dll</HintPath>
-    </Reference>
-    <Reference Include="EleWise.ELMA.Projects">
-      <HintPath>..\DLL's\EleWise.ELMA.Projects.dll</HintPath>
-    </Reference>
     <Reference Include="EleWise.ELMA.SDK">
       <HintPath>..\DLL's\EleWise.ELMA.SDK.dll</HintPath>
     </Reference>
