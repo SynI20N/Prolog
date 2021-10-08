@@ -37,9 +37,11 @@
 }
 
 <script>
-    @{
-        @:updateDate('@Model.Id');
-    }
+    $(document).ready(function () {
+        @{
+            @:updateDate('@Model.Id');
+        }
+    })
     function updateDate(productID) {
         var i = 0;
         var element = document.getElementById(productID);
