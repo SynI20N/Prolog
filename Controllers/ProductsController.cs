@@ -8,12 +8,14 @@ using Prolog.Web.Portlets;
 using System.Web.Mvc;
 using Telerik.Web.Mvc;
 using static EleWise.ELMA.API.PublicAPI.ObjectsApiRoot;
+using static EleWise.ELMA.API.PublicAPI.PortalApiRoot.SecurityPortalApi;
 
 namespace Prolog.Web.Controllers
 {
     public class ProductsController : FilterTreeBaseController<ITovar, long>
     {
-        private UserObjectsApiRoot _portalHelper = PublicAPI.Objects.UserObjects;
+        private UserObjectsApiRoot _portalUserObjects = PublicAPI.Objects.UserObjects;
+        private UserSecurityApi _portalUser = PublicAPI.Portal.Security.User;
 
         [HttpGet]
         public ActionResult ProductsPortlet(ProductsPortletPersonalization settings)
@@ -26,7 +28,7 @@ namespace Prolog.Web.Controllers
         /*public ActionResult PortletGrid(GridCommand command, long? filterId)
         {
             var filter = CreateFilter(filterId);
-            IUser user = PublicAPI.Portal.Security.User.GetCurrentUser();
+            IUser user = _portalUser.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             var list = CreateGridData(command, filter);
             return PartialView("Portlets/ProductsPortlet/Grid", list);
@@ -35,10 +37,10 @@ namespace Prolog.Web.Controllers
         [HttpPost]
         public ActionResult UpdateStatus(long status, long id)
         {
-            Tovar product = _portalHelper.UserTovar.Load(id);
+            Tovar product = _portalUserObjects.UserTovar.Load(id);
             if (status != 0)
             {
-                product.Status = _portalHelper.UserStatusPoziciiSpecifikacii.Load(status);
+                product.Status = _portalUserObjects.UserStatusPoziciiSpecifikacii.Load(status);
             }
             else
             {
@@ -52,7 +54,7 @@ namespace Prolog.Web.Controllers
         [HttpPost]
         public ActionResult UpdateDate(long id)
         {
-            Tovar product = _portalHelper.UserTovar.Load(id);
+            Tovar product = _portalUserObjects.UserTovar.Load(id);
 
             return PartialView("Portlets/ProductsPortlet/Partial/Date", product);
         }
