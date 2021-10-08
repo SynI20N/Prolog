@@ -47,6 +47,8 @@
         var count = element.children.count;
         for (i = 0; i < count; i++) {
             if (element.children[i].className.includes('prolog-butten')) {
+                alert(element.innerHTML);
+                alert(dateElement.innerHTML);
                 element.children[i].addEventListener('click', function () {
                     var info = { id: productID };
                     $.ajax({
@@ -62,8 +64,6 @@
                 });
             }
         }
-        alert(element.innerHTML);
-        alert(dateElement.innerHTML);
     }
 </script>
 
