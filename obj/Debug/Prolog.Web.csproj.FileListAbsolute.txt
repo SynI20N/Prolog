@@ -126,4 +126,3 @@ C:\C#\Prolog.Web\bin\ru\System.Web.Razor.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.Razor.resources.dll
-C:\C#\Prolog.Web\obj\Debug\Prolog.Web.csproj.AssemblyReference.cache

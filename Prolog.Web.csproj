@@ -148,8 +148,6 @@
     <Content Include="Views\Portlets\ProductsPortlet\Index.cshtml" />
     <Content Include="Views\Portlets\ProductsPortlet\Grid.cshtml" />
     <None Include="packages.config" />
-    <Content Include="Views\Portlets\ProductsPortlet\Partial\Status.cshtml" />
-    <Content Include="Views\Portlets\ProductsPortlet\Partial\Date.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -173,6 +171,7 @@
     <Compile Include="RouteProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Portlets\ProductsPortlet\Partial\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
