@@ -44,7 +44,7 @@
 		  url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateStatus',
 		  data: info,
 		  success: function(resultData) {
-              cachedText = '<br>' + '<span style="font-size: 12px; background-color:yellow; font-weight: 700">' + resultData + '</span>';
+              cachedText = '<br>' + '<span style="font-size: 12px; background-color:yellow; font-weight: 700">' + 'Статус изделия сохранён!' + '</span>';
               element.parentElement.innerHTML = resultData + cachedText;
 		      setTimeout(function() {document.getElementById(productID).innerHTML = document.getElementById(productID).innerHTML.replace(cachedText,"");}, 2000);
 		  },
