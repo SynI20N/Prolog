@@ -178,6 +178,11 @@
     <Content Include="Views\Absence\Graph.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Works\Graph.cshtml" />
+    <Content Include="Views\Portlets\ProductsPortlet\Partial\Date.cshtml" />
+    <Content Include="Views\Portlets\ProductsPortlet\Partial\Status.cshtml" />
+    <Content Include="Views\Portlets\ProductsPortlet\Grid.cshtml" />
+    <Content Include="Views\Portlets\ProductsPortlet\Index.cshtml" />
+    <Content Include="Views\Portlets\ProductsPortlet\Personalization.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,13 +199,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorksController.cs" />
     <Compile Include="Menu\MenuItemProvider.cs" />
+    <Compile Include="Models\ProductsPortletModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Portlets\" />
-    <Folder Include="Views\Portlets\ProductsPortlet\Partial\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
