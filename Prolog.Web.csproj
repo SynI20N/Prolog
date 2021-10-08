@@ -48,9 +48,8 @@
     <Reference Include="EleWise.ELMA.BPM.Web">
       <HintPath>..\DLL's\EleWise.ELMA.BPM.Web.dll</HintPath>
     </Reference>
-    <Reference Include="EleWise.ELMA.BPM.Web.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\EleWise.ELMA.BPM.Web.Common.dll</HintPath>
+    <Reference Include="EleWise.ELMA.BPM.Web.Common">
+      <HintPath>..\DLL's\EleWise.ELMA.BPM.Web.Common.dll</HintPath>
     </Reference>
     <Reference Include="EleWise.ELMA.Common">
       <HintPath>..\DLL's\EleWise.ELMA.Common.dll</HintPath>
@@ -197,6 +196,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AbsenceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\WorksController.cs" />
     <Compile Include="Menu\MenuItemProvider.cs" />
     <Compile Include="Models\ProductsPortletModel.cs" />
