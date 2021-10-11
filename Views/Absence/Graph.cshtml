@@ -126,7 +126,11 @@
 	}
 
 	function addAbs(ID, fullName, startDate, endDate, grounds, barText, description, userDepartment)
-	{
+    {
+        var cachedMinDate = maxDateGlobal;
+        var cachedMaxDate = minDateGlobal;
+
+
 		if(userDepartment === departmentGlobal || departmentGlobal === "All")
 		{
 			g.AddTaskItemObject({
@@ -138,8 +142,8 @@
 			  pClass: grounds,
 			  pOpen: 1,
 			  pBarText: barText,
-			  pMinDate: minDateGlobal,
-			  pMaxDate: maxDateGlobal,
+              pMinDate: cachedMinDate,
+              pMaxDate: cachedMaxDate,
 			  pNotes: formatDescription(description),
 			});
 		}
@@ -156,7 +160,11 @@
 
 	function fillList() {
 	  	@foreach(var abs in @GetAbsences(p => p.User != null))
-		{
+        {
+            if(abs.StartDate == abs.EndDate)
+            {
+                abs.EndDate.AddDays(1);
+            }
 			@:addAbs('@abs.User.Id','@abs.User.FullName','@GetDateFormat(abs.StartDate)','@GetDateFormat(abs.EndDate)','@GetColorClass(abs.Grounds)','@GetName(abs.Grounds)', "@abs.Description", '@GetDepartmentByUser(abs.User)');
 		}
 	};
