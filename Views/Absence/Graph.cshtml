@@ -161,9 +161,18 @@
 	function fillList() {
 	  	@foreach(var abs in @GetAbsences(p => p.User != null))
         {
+            DateTime now = DateTime.Now;
             if((abs.EndDate - abs.StartDate).TotalDays < 1)
             {
                 abs.EndDate = abs.EndDate.AddDays(1);
+            }
+            if(now > abs.StartDate && now < abs.EndDate)
+            {
+                @:minDateGlobal = null;
+                @:maxDateGlobal = null;
+                @:addAbs('@abs.User.Id', '@abs.User.FullName', '@GetDateFormat(abs.StartDate)', '@GetDateFormat(abs.EndDate)', '@GetColorClass(abs.Grounds)', '@GetName(abs.Grounds)', "@abs.Description", '@GetDepartmentByUser(abs.User)');
+                @:minDateGlobal = document.getElementById("OnDateMinChange").valueAsDate;
+                @:maxDateGlobal = document.getElementById("OnDateMaxChange").valueAsDate;
             }
 			@:addAbs('@abs.User.Id','@abs.User.FullName','@GetDateFormat(abs.StartDate)','@GetDateFormat(abs.EndDate)','@GetColorClass(abs.Grounds)','@GetName(abs.Grounds)', "@abs.Description", '@GetDepartmentByUser(abs.User)');
 		}

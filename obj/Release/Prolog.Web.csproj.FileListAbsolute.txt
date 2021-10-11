@@ -35,7 +35,6 @@ C:\C#\Prolog.Web\bin\Autofac.dll
 C:\C#\Prolog.Web\bin\EleWise.ELMA.Packaging.dll
 C:\C#\Prolog.Web\bin\Cassini.dll
 C:\C#\Prolog.Web\bin\NHibernate.dll
-C:\C#\Prolog.Web\bin\Iesi.Collections.dll
 C:\C#\Prolog.Web\bin\AutoMapper.dll
 C:\C#\Prolog.Web\bin\Aspose.Cells.dll
 C:\C#\Prolog.Web\bin\FluentNHibernate.dll

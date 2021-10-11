@@ -8,22 +8,42 @@
 @using System.Collections.Generic
 @model GridDataFilter<ITovar>
 
-    <table cellspacing="5px">
-        <button>Принято</button>
-        <button>Производство / Закупка</button>
-        <button>В наличии</button>
-        <button>Отгружено / Использовано</button>
+    <table class="products-filter">
+        <td><button class="products-status-filter" onclick="changeState(this)">Без статуса</button></td>
+        <td><button class="products-status-filter" onclick="changeState(this)">Принято</button></td>
+        <td><button class="products-status-filter" onclick="changeState(this)">Разработка</button></td>
+        <td><button class="products-status-filter" onclick="changeState(this)">Производство / Закупка</button></td>
+        <td><button class="products-status-filter" onclick="changeState(this)">В наличии</button></td>
+        <td><button class="products-status-filter" onclick="changeState(this)">Отгружено / Использовано</button></td>
     </table>
+    <br>
 
-    @(Html.FilterDynamicGrid(Model)
-    .WithDefaultSettings()
-    .Columns(c =>
+    @ProductsGrid(Model)
+
+    <script>
+	function changeState(element)
+	{
+		if(element.className == "products-status-filter")
+		{
+			element.className += " products-status-filter-pushed";
+		}
+		else
+		{
+			element.className = "products-status-filter";
+		}
+	}
+    </script>
+
+    @helper ProductsGrid(GridDataFilter<ITovar> model)
     {
-        c.For(m => m.Status).Template(m => m.Status != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Status", m) : MvcHtmlString.Empty);
-        c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Date", m) : MvcHtmlString.Empty);
-        c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("ViewItem", "Catalogs", new { area = "EleWise.ELMA.BPM.Web.Common", uid = "f5017415-8d76-4d5d-a1d1-89eb73b69c74", id = m.Id }));
-    })
-    .DefaultColumns()
-    .Resizeable(true)
-    .Reorderable(true)
-    .Action("PortletGrid"))
+        @(Html.FilterDynamicGrid(model)
+            .WithDefaultSettings()
+            .Columns(c =>{
+                c.For(m => m.Status).Template(m => m.Status != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Status", m):MvcHtmlString.Empty);
+                c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Date", m) : MvcHtmlString.Empty);
+                c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("ViewItem", "Catalogs", new { area = "EleWise.ELMA.BPM.Web.Common", uid = "f5017415-8d76-4d5d-a1d1-89eb73b69c74", id = m.Id}));})
+            .DefaultColumns()
+            .Resizeable(true)
+            .Reorderable(true)
+            .Action("PortletGrid"))
+    }
