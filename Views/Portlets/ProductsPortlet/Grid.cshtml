@@ -8,7 +8,7 @@
 @using System.Collections.Generic
 @model GridDataFilter<ITovar>
 
-    @Model.DataFilter.Filter
+    @Model.DataFilter.Filter.Query
 
     @(Html.FilterDynamicGrid(Model)
     .WithDefaultSettings()
