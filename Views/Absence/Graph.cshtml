@@ -163,7 +163,7 @@
         {
             if((abs.EndDate - abs.StartDate).TotalDays < 1)
             {
-                abs.EndDate.AddDays(1);
+                abs.EndDate = abs.EndDate.AddDays(1);
             }
 			@:addAbs('@abs.User.Id','@abs.User.FullName','@GetDateFormat(abs.StartDate)','@GetDateFormat(abs.EndDate)','@GetColorClass(abs.Grounds)','@GetName(abs.Grounds)', "@abs.Description", '@GetDepartmentByUser(abs.User)');
 		}
