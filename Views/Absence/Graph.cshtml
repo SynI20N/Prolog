@@ -161,7 +161,7 @@
 	function fillList() {
 	  	@foreach(var abs in @GetAbsences(p => p.User != null))
         {
-            if(abs.StartDate == abs.EndDate)
+            if(abs.StartDate.Date == abs.EndDate.Date)
             {
                 abs.EndDate.AddDays(1);
             }
