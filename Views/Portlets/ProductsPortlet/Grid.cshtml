@@ -8,7 +8,12 @@
 @using System.Collections.Generic
 @model GridDataFilter<ITovar>
 
-    @Model.DataFilter.Filter.Query
+    <table cellspacing="5px">
+        <button>Принято</button>
+        <button>Производство / Закупка</button>
+        <button>В наличии</button>
+        <button>Отгружено / Использовано</button>
+    </table>
 
     @(Html.FilterDynamicGrid(Model)
     .WithDefaultSettings()
