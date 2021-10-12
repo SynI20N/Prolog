@@ -143,13 +143,14 @@
 
     function redraw() {
 
-        if (document.getElementById("OnDateMinChange").valueAsDate != null) {
-  		    minDateGlobal = document.getElementById("OnDateMinChange").valueAsDate;
+  		minDateGlobal = document.getElementById("OnDateMinChange").valueAsDate;
+        maxDateGlobal = document.getElementById("OnDateMaxChange").valueAsDate;
 
+        if (minDateGlobal == null) {
+            minDateGlobal = '';
         }
-
-        if (document.getElementById("OnDateMaxChange").valueAsDate != null) {
-            maxDateGlobal = document.getElementById("OnDateMaxChange").valueAsDate;
+        if (maxDateGlobal == null) {
+            maxDateGlobal = '';
         }
 
 	  	departmentGlobal = document.getElementById("OnDepartmentChange").value;
