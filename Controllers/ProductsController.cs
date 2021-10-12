@@ -39,6 +39,10 @@ namespace Prolog.Web.Controllers
 
         private GridDataFilter<ITovar> getFilteredList(ref GridDataFilter<ITovar> list, string filter)
         {
+            if(filter == null)
+            {
+                return list;
+            }
             for (int i = 0; i < filter.Length; i++)
             {
                 if(filter[i] == 1)

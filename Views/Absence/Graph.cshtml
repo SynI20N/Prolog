@@ -49,7 +49,7 @@
                 </td>
                 <td>
                     <b style="margin-left: 20px">Отдел:</b>
-                    <select name"division" class="gtaskcell" style="margin-top: 14px" id="OnDepartmentChange">
+                    <select class="gtaskcell" style="margin-top: 14px" id="OnDepartmentChange">
                         <option value="All" style="background-color: DarkGrey">Все</option>
                         @foreach (var d in @GetDepartments(p => p.ItemType == 0 && p.IsDeleted != true))
                         {
