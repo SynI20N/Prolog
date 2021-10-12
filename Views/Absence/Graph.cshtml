@@ -166,7 +166,7 @@
             {
                 abs.EndDate = abs.EndDate.AddDays(1);
             }
-            if(now > abs.StartDate && now < abs.EndDate)
+            if(now < abs.EndDate)
             {
                 @:minDateGlobal = null;
                 @:maxDateGlobal = null;
