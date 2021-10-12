@@ -127,11 +127,7 @@
 
 	function addAbs(ID, fullName, startDate, endDate, grounds, barText, description, userDepartment)
     {
-        var cachedMinDate = minDateGlobal;
-        var cachedMaxDate = maxDateGlobal;
-
-
-		if(userDepartment === departmentGlobal || departmentGlobal === "All")
+        if (userDepartment === departmentGlobal || departmentGlobal === "All")
 		{
 			g.AddTaskItemObject({
 			  pID: ID,
@@ -142,8 +138,8 @@
 			  pClass: grounds,
 			  pOpen: 1,
 			  pBarText: barText,
-              pMinDate: cachedMinDate,
-              pMaxDate: cachedMaxDate,
+              pMinDate: minDateGlobal,
+              pMaxDate: maxDateGlobal,
 			  pNotes: formatDescription(description),
 			});
 		}
@@ -165,14 +161,6 @@
             if((abs.EndDate - abs.StartDate).TotalDays < 1)
             {
                 abs.EndDate = abs.EndDate.AddDays(1);
-            }
-            if(now > abs.StartDate && now < abs.EndDate)
-            {
-                @:minDateGlobal = null;
-                @:maxDateGlobal = null;
-                @:addAbs('@abs.User.Id', '@abs.User.FullName', '@GetDateFormat(abs.StartDate)', '@GetDateFormat(abs.EndDate)', '@GetColorClass(abs.Grounds)', '@GetName(abs.Grounds)', "@abs.Description", '@GetDepartmentByUser(abs.User)');
-                @:minDateGlobal = document.getElementById("OnDateMinChange").valueAsDate;
-                @:maxDateGlobal = document.getElementById("OnDateMaxChange").valueAsDate;
             }
 			@:addAbs('@abs.User.Id','@abs.User.FullName','@GetDateFormat(abs.StartDate)','@GetDateFormat(abs.EndDate)','@GetColorClass(abs.Grounds)','@GetName(abs.Grounds)', "@abs.Description", '@GetDepartmentByUser(abs.User)');
 		}
