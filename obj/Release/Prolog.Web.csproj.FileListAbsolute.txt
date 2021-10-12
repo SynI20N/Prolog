@@ -83,4 +83,3 @@ C:\C#\Prolog.Web\bin\Microsoft.Web.XmlTransform.dll
 C:\C#\Prolog.Web\bin\EleWise.ELMA.BPM.Web.Common.dll
 C:\C#\Prolog.Web\bin\EleWise.ELMA.EmployeeOfOrganization.dll
 C:\C#\Prolog.Web\bin\EleWise.ELMA.Projects.dll
-C:\C#\Prolog.Web\obj\Release\Prolog.Web.csproj.AssemblyReference.cache
