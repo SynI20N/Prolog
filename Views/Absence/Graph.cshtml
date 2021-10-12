@@ -147,10 +147,10 @@
         maxDateGlobal = document.getElementById("OnDateMaxChange").valueAsDate;
 
         if (minDateGlobal == null) {
-            minDateGlobal = '';
+            minDateGlobal = new Date(0);
         }
         if (maxDateGlobal == null) {
-            maxDateGlobal = '';
+            maxDateGlobal = new Date(+10000000000000);
         }
 
 	  	departmentGlobal = document.getElementById("OnDepartmentChange").value;
