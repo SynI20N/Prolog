@@ -1,0 +1,80 @@
+{
+  "Files": [
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Portlets/ProductsPortlet/Personalization.cshtml",
+      "HashCode": "XWxsd3t6ngIoZv7R4W+Max1ncmAcu5OWXtdRVOcdnck",
+      "Errors": [
+        {
+          "IsError": true,
+          "Id": "CS1061",
+          "Message": "'HtmlHelper<ProductsPortletPersonalization>' does not contain a definition for 'TableForm' and no extension method 'TableForm' accepting a first argument of type 'HtmlHelper<ProductsPortletPersonalization>' could be found (are you missing a using directive or an assembly reference?)",
+          "Position": {
+            "FilePath": "C:\\ELMA3-Standart\\Web\\Modules\\Prolog.Web\\Views\\Portlets\\ProductsPortlet\\Personalization.cshtml",
+            "Character": 14,
+            "Line": 5
+          }
+        },
+        {
+          "IsError": true,
+          "Id": "CS1660",
+          "Message": "Cannot convert lambda expression to type 'string' because it is not a delegate type",
+          "Position": {
+            "FilePath": "C:\\ELMA3-Standart\\Web\\Modules\\Prolog.Web\\Views\\Portlets\\ProductsPortlet\\Personalization.cshtml",
+            "Character": 26,
+            "Line": 10
+          }
+        }
+      ],
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    },
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Absence/Graph.cshtml",
+      "HashCode": "jdNs/X2hruQqipgv2kqWgJw5atQUVli/+SzzzD4qheY",
+      "AssemblyUid": "1972974553f28ad69f2a5f4365abb600f29e753448",
+      "ClassName": "ASP._Page_Modules_Prolog_Web_Views_Absence_Graph_cshtml_de0d0469",
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    },
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Home/Index.cshtml",
+      "HashCode": "+DsZhpECC/g9H2SssXJlUxkTMZAyLgbMNSs41fuRMoc",
+      "AssemblyUid": "1972974553f28ad69f2a5f4365abb600f29e753448",
+      "ClassName": "ASP._Page_Modules_Prolog_Web_Views_Home_Index_cshtml_dcabd53d",
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    },
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Portlets/ProductsPortlet/Grid.cshtml",
+      "HashCode": "RPY5v4R7Kowu/GYKsGdi92oba1mZOxJuCEoZS9HEQDc",
+      "AssemblyUid": "1972974553f28ad69f2a5f4365abb600f29e753448",
+      "ClassName": "ASP._Page_Modules_Prolog_Web_Views_Portlets_ProductsPortlet_Grid_cshtml_ed7a8888",
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    },
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Portlets/ProductsPortlet/Index.cshtml",
+      "HashCode": "lMfEeeLak6CvuMcX99nTcjgdMaLbGlIHEstgKJzOdMo",
+      "AssemblyUid": "1972974553f28ad69f2a5f4365abb600f29e753448",
+      "ClassName": "ASP._Page_Modules_Prolog_Web_Views_Portlets_ProductsPortlet_Index_cshtml_3ad90a56",
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    },
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Portlets/ProductsPortlet/Partial/Date.cshtml",
+      "HashCode": "Fn5tJEXAs1dWbrqNNyWb3IEgu7mY+IJfrkgQ+/EwUcQ",
+      "AssemblyUid": "1972974553f28ad69f2a5f4365abb600f29e753448",
+      "ClassName": "ASP._Page_Modules_Prolog_Web_Views_Portlets_ProductsPortlet_Partial_Date_cshtml_e99d80ae",
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    },
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Portlets/ProductsPortlet/Partial/Status.cshtml",
+      "HashCode": "pnBcMLAn0M2U6dq1mJFSWYKSeMEWy/edoXWvBYql8jY",
+      "AssemblyUid": "1972974553f28ad69f2a5f4365abb600f29e753448",
+      "ClassName": "ASP._Page_Modules_Prolog_Web_Views_Portlets_ProductsPortlet_Partial_Status_cshtml_5b49cd9c",
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    },
+    {
+      "VirtualPath": "/Modules/Prolog.Web/Views/Works/Graph.cshtml",
+      "HashCode": "r4glA9Pq8bMptH3bKiugiXwbePvJVEeOzKJmxdh7ixg",
+      "AssemblyUid": "1972974553f28ad69f2a5f4365abb600f29e753448",
+      "ClassName": "ASP._Page_Modules_Prolog_Web_Views_Works_Graph_cshtml_86a03a4a",
+      "LastUseDate": "2021-10-12T09:44:56.2724696Z"
+    }
+  ]
+}
