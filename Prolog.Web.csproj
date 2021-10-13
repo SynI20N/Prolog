@@ -124,12 +124,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLL's\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLL's\System.Web.Mvc.dll</HintPath>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing">
       <Private>False</Private>
@@ -137,21 +132,20 @@
     <Reference Include="System.Web">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLL's\System.Web.Razor.dll</HintPath>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLL's\System.Web.WebPages.dll</HintPath>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLL's\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\DLL's\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
       <Private>False</Private>
@@ -186,6 +180,10 @@
     <Content Include="Views\Portlets\ProductsPortlet\Grid.cshtml" />
     <Content Include="Views\Portlets\ProductsPortlet\Index.cshtml" />
     <Content Include="Views\Portlets\ProductsPortlet\Personalization.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Portlets\ResponsibilityPortlet\Index.cshtml" />
+    <Content Include="Views\Portlets\ResponsibilityPortlet\Grid.cshtml" />
+    <Content Include="Views\Portlets\ResponsibilityPortlet\Personalization.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -205,11 +203,12 @@
     <Compile Include="Menu\MenuItemProvider.cs" />
     <Compile Include="Models\ProductsPortletModel.cs" />
     <Compile Include="Portlets\ProductsPortlet.cs" />
-    <Compile Include="Portlets\ProductsPortletPersonalization.cs" />
+    <Compile Include="Portlets\ResponsibilityPortlet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Portlets\ResponsibilityPortlet\Partial\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
