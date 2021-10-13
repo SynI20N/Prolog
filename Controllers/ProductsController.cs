@@ -36,7 +36,10 @@ namespace Prolog.Web.Controllers
             {
                 for (int i = 0; i < statusFilter.Length; i++)
                 {
-                    ((TovarFilter)filter.Filter).Status.Add(_portalUserObjects.UserStatusPoziciiSpecifikacii.Load(getStatusId(i)));
+                    if(statusFilter[i] == '1')
+                    {
+                        ((TovarFilter)filter.Filter).Status.Add(_portalUserObjects.UserStatusPoziciiSpecifikacii.Load(getStatusId(i)));
+                    }
                 }
             }
             var list = CreateGridData(command, filter);
