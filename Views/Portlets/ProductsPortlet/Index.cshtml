@@ -27,26 +27,36 @@
 </div>
 
 <script>
-	function changeState(element)
-	{
-		if(element.className == "products-status-filter")
-		{
-			element.className += " products-status-filter-pushed";
-		}
-		else
-		{
-			element.className = "products-status-filter";
+    function changeState(element) {
+        if (element.className == "products-status-filter") {
+            element.className += " products-status-filter-pushed";
+        }
+        else {
+            element.className = "products-status-filter";
         }
 
-        var info = { statusFilter: "1111" };
+        var filters = $('[class*="products-status-filter"]');
+        var i = 0;
+        var s = "";
+
+        for (i = 0; i < filter[i]; i++) {
+            if (filters[i].className.includes("pushed")  {
+                s += "1";
+            }
+            else {
+                s += "0";
+            }
+        }
+
+        var info = { statusFilter: s };
         $.ajax({
             type: "GET",
             url: 'https://elma.prolog.ltd/Prolog.Web/Products/PortletGrid',
             data: info,
             success: function (resultData) {
-                $("products-portlet-grid").html(resultData);
+                $("#products-portlet-grid").html(resultData);
             },
-            dataType: "html"
+            dataType: "html",
         });
-	}
+    }
 </script>
