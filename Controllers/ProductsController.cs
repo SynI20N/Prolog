@@ -2,11 +2,11 @@
 using EleWise.ELMA.BPM.Web.Common.Controllers;
 using EleWise.ELMA.BPM.Web.Common.Models;
 using EleWise.ELMA.ConfigurationModel;
+using EleWise.ELMA.Model.Common;
 using EleWise.ELMA.Security.Models;
 using EleWise.ELMA.Web.Mvc.Attributes;
 using Prolog.Web.Models;
 using Prolog.Web.Portlets;
-using System;
 using System.Web.Mvc;
 using Telerik.Web.Mvc;
 using static EleWise.ELMA.API.PublicAPI.ObjectsApiRoot;
@@ -33,30 +33,32 @@ namespace Prolog.Web.Controllers
             IUser user = _portalUser.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             var list = CreateGridData(command, filter);
-            
+
             return PartialView("Portlets/ProductsPortlet/Grid", getFilteredList(ref list, statusFilter));
         }
 
         private GridDataFilter<ITovar> getFilteredList(ref GridDataFilter<ITovar> list, string filter)
         {
-            if(filter == null)
+            IEntityFilter data = list.DataFilter.Filter;
+            if (filter == null)
             {
                 return list;
             }
             for (int i = 0; i < filter.Length; i++)
             {
-                if(filter[i] == 1)
+                if (filter[i] == 1)
                 {
-                    list.DataFilter.Filter.Query += "Status = " + getStatusId(i) + "AND";
+                    data.Query += "Status = " + getStatusId(i) + "AND";
                 }
             }
+            data.Query = data.Query.Remove(data.Query.Length - 3);
 
             return list;
         }
 
         private string getStatusId(int i)
         {
-            if(i == 5)
+            if (i == 5)
             {
                 return "102";
             }

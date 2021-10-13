@@ -8,6 +8,8 @@
 @using System.Collections.Generic
 @model GridDataFilter<ITovar>
 
+    <div id="products-portlet-grid">
+
     <table class="products-filter">
         <td><button class="products-status-filter" onclick="changeState(this)">Без статуса</button></td>
         <td><button class="products-status-filter" onclick="changeState(this)">Принято</button></td>
@@ -20,6 +22,8 @@
 
     @ProductsGrid(Model)
 
+    </div>
+
     <script>
 	function changeState(element)
 	{
@@ -30,7 +34,17 @@
 		else
 		{
 			element.className = "products-status-filter";
-		}
+        }
+        var info = { statusFilter: "111100" };
+        $.ajax({
+            type: "POST",
+            url: 'https://elma.prolog.ltd/Prolog.Web/Products/PortletGrid',
+            data: info,
+            success: function (resultData) {
+                document.getElementById("products-portlet-grid").innerHTML = resultData;
+            },
+            dataType: "html"
+        });
 	}
     </script>
 
