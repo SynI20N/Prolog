@@ -32,39 +32,27 @@ namespace Prolog.Web.Controllers
             var filter = CreateFilter(filterId);
             IUser user = _portalUser.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
-            var list = CreateGridData(command, filter);
-
-            return PartialView("Portlets/ProductsPortlet/Grid", getFilteredList(ref list, statusFilter));
-        }
-
-        private GridDataFilter<ITovar> getFilteredList(ref GridDataFilter<ITovar> list, string filter)
-        {
-            IEntityFilter data = list.DataFilter.Filter;
-            if (filter == null)
+            if(statusFilter != null)
             {
-                return list;
-            }
-            for (int i = 0; i < filter.Length; i++)
-            {
-                if (filter[i] == 1)
+                for (int i = 0; i < statusFilter.Length; i++)
                 {
-                    data.Query += "Status = " + getStatusId(i) + "AND";
+                    ((TovarFilter)filter.Filter).Status.Add(_portalUserObjects.UserStatusPoziciiSpecifikacii.Load(getStatusId(i)));
                 }
             }
-            data.Query = data.Query.Remove(data.Query.Length - 3);
+            var list = CreateGridData(command, filter);
 
-            return list;
+            return PartialView("Portlets/ProductsPortlet/Grid", list);
         }
 
-        private string getStatusId(int i)
+        private long getStatusId(int i)
         {
             if (i == 5)
             {
-                return "102";
+                return 102;
             }
             else
             {
-                return i.ToString();
+                return i;
             }
         }
 
