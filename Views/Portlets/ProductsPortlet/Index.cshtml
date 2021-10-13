@@ -1,5 +1,5 @@
 ﻿@using Prolog.Web
-@using Prolog.Web.Models 
+@using Prolog.Web.Models
 @using EleWise.ELMA
 @using EleWise.ELMA.Services
 @using EleWise.ELMA.BPM.Web.Common.Extensions
@@ -10,4 +10,43 @@
 @model ProductsPortletModel
 
 
-@Html.Action("PortletGrid", "Products", new { area = RouteProvider.AreaName, statusFilter = "111100" })
+<table class="products-filter">
+    <td><button class="products-status-filter" onclick="changeState(this)">Без статуса</button></td>
+    <td><button class="products-status-filter" onclick="changeState(this)">Принято</button></td>
+    <td><button class="products-status-filter" onclick="changeState(this)">Разработка</button></td>
+    <td><button class="products-status-filter" onclick="changeState(this)">Производство / Закупка</button></td>
+    <td><button class="products-status-filter" onclick="changeState(this)">В наличии</button></td>
+    <td><button class="products-status-filter" onclick="changeState(this)">Отгружено / Использовано</button></td>
+</table>
+<br>
+
+<div id="products-portlet-grid">
+
+    @Html.Action("PortletGrid", "Products", new { area = RouteProvider.AreaName, statusFilter = "111100" })
+
+</div>
+
+<script>
+	function changeState(element)
+	{
+		if(element.className == "products-status-filter")
+		{
+			element.className += " products-status-filter-pushed";
+		}
+		else
+		{
+			element.className = "products-status-filter";
+        }
+
+        var info = { statusFilter: "1111" };
+        $.ajax({
+            type: "GET",
+            url: 'https://elma.prolog.ltd/Prolog.Web/Products/PortletGrid',
+            data: info,
+            success: function (resultData) {
+                document.getElementById("products-portlet-grid").innerHTML = resultData;
+            },
+            dataType: "html"
+        });
+	}
+</script>
