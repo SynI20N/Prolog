@@ -166,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\code.png" />
+    <Content Include="Images\x24\ResponsibilityPortlet.png" />
     <Content Include="Images\x24\ProductsPortlet.png" />
     <Content Include="Images\x32\absence_graph.png" />
     <Content Include="Images\x32\add.png" />
