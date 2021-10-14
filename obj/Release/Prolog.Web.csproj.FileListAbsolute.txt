@@ -85,11 +85,10 @@ C:\C#\Prolog.Web\obj\Release\Prolog.Web.dll
 C:\C#\Prolog.Web\obj\Release\Prolog.Web.pdb
 C:\C#\Prolog.Web\bin\System.Web.Helpers.xml
 C:\C#\Prolog.Web\bin\System.Web.Razor.xml
-C:\C#\Prolog.Web\bin\System.Web.WebPages.xml
 C:\C#\Prolog.Web\bin\System.Web.WebPages.Deployment.xml
 C:\C#\Prolog.Web\bin\System.Web.WebPages.Razor.xml
 C:\C#\Prolog.Web\bin\ru\System.Web.Helpers.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.Razor.resources.dll
-C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\C#\Prolog.Web\obj\Release\Prolog.Web.csproj.AssemblyReference.cache
