@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\WorksController.cs" />
+    <Compile Include="Global\global.cs" />
     <Compile Include="Menu\MenuItemProvider.cs" />
     <Compile Include="Models\ProductsPortletModel.cs" />
     <Compile Include="Portlets\ProductsPortlet.cs" />
