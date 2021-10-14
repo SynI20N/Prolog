@@ -12,7 +12,6 @@ namespace Prolog.Web.Global
     {
         private void test(ISaleConfigExt entity)
         {
-            tes;
         }
     }
 }
