@@ -24,11 +24,11 @@ namespace Prolog.Web.Controllers
             return PartialView("Portlets/ProductsPortlet/Index", model);
         }
 
-        /*[HttpGet]
+        [HttpGet]
         public ActionResult ResponsibilityPortlet(ResponsibilityPortletPersonalization settings)
         {
             return PartialView("Portlets/ResponsibilityPortlet/Index");
-        }*/
+        }
 
         [CustomGridAction]
         public ActionResult PortletGrid(GridCommand command, long? filterId, string statusFilter)

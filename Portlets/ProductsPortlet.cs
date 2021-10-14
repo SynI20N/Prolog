@@ -52,7 +52,7 @@ namespace Prolog.Web.Portlets
 
         public override string GetNameUrl(UrlHelper urlHelper, ProductsPortletPersonalization data)
         {
-            return urlHelper.Action("View", "Catalogs", new { area = "EleWise.ELMA.BPM.Common.Web"});
+            return urlHelper.Action("View", "Catalogs", new { area = "EleWise.ELMA.BPM.Common.Web" });
         }
 
         public override MvcHtmlString Content(HtmlHelper html, ProductsPortletPersonalization data)
