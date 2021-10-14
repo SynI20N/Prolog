@@ -1,8 +1,6 @@
 ﻿using EleWise.ELMA.API;
 using EleWise.ELMA.BPM.Web.Common.Controllers;
-using EleWise.ELMA.BPM.Web.Common.Models;
 using EleWise.ELMA.ConfigurationModel;
-using EleWise.ELMA.Model.Common;
 using EleWise.ELMA.Security.Models;
 using EleWise.ELMA.Web.Mvc.Attributes;
 using Prolog.Web.Models;
@@ -26,19 +24,27 @@ namespace Prolog.Web.Controllers
             return PartialView("Portlets/ProductsPortlet/Index", model);
         }
 
+        [HttpGet]
+        public ActionResult ResponsibilityPortlet(ResponsibilityPortletPersonalization settings)
+        {
+            return PartialView("Portlets/ResponsibilityPortlet/Index");
+        }
+
         [CustomGridAction]
         public ActionResult PortletGrid(GridCommand command, long? filterId, string statusFilter)
         {
+            IStatusPoziciiSpecifikacii status;
             var filter = CreateFilter(filterId);
             IUser user = _portalUser.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
-            if(statusFilter != null)
+            if (statusFilter != null)
             {
                 for (int i = 0; i < statusFilter.Length; i++)
                 {
-                    if(statusFilter[i] == '1')
+                    status = _portalUserObjects.UserStatusPoziciiSpecifikacii.Load(getStatusId(i));
+                    if (statusFilter[i] == '1')
                     {
-                        ((TovarFilter)filter.Filter).Status.Add(_portalUserObjects.UserStatusPoziciiSpecifikacii.Load(getStatusId(i)));
+                        ((TovarFilter)filter.Filter).Status.Add(status);
                     }
                 }
             }

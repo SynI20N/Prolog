@@ -1,7 +1,6 @@
 ﻿using EleWise.ELMA;
 using EleWise.ELMA.ComponentModel;
 using EleWise.ELMA.Security;
-using EleWise.ELMA.Security.Models;
 using EleWise.ELMA.Web.Mvc.Portlets;
 using System;
 using System.Web.Mvc;
@@ -9,13 +8,13 @@ using System.Web.Mvc;
 namespace Prolog.Web.Portlets
 {
     [Component]
-    public class ProductsPortlet : Portlet<ProductsPortletPersonalization>
+    public class ResponsibilityPortlet : Portlet<ResponsibilityPortletPersonalization>
     {
-        public static string UID_S = "{f47f2c60-c15b-4b03-b3de-d1540a3c3041}";
+        public static string UID_S = "{cb7fcef0-f1df-4aea-bb2b-f7f05adf35c1}";
         public static Guid UID = new Guid(UID_S);
         private readonly PortletProfile profile;
 
-        public ProductsPortlet()
+        public ResponsibilityPortlet()
         {
             profile = base.Profile as PortletProfile;
 
@@ -27,7 +26,7 @@ namespace Prolog.Web.Portlets
 
             profile.Customizable = false;
             profile.DefaultOrder = 0;
-            profile.ImageUrl = RouteProvider.ImagesFolder + "x24/ProductsPortlet.png";
+            profile.ImageUrl = RouteProvider.ImagesFolder + "x24/ResponsibilityPortlet.png";
         }
 
         public override IPortletProfile Profile
@@ -42,20 +41,15 @@ namespace Prolog.Web.Portlets
 
         public override string Name
         {
-            get { return SR.T("Изделия"); }
+            get { return SR.T("Ответственность отдела"); }
         }
 
         public override string Description
         {
-            get { return SR.T("Отображение информации об изделиях"); }
+            get { return SR.T("Какими изделиями занимается мой отдел?"); }
         }
 
-        public override string GetNameUrl(UrlHelper urlHelper, ProductsPortletPersonalization data)
-        {
-            return urlHelper.Action("View", "Catalogs", new { area = "EleWise.ELMA.BPM.Common.Web" });
-        }
-
-        public override MvcHtmlString Content(HtmlHelper html, ProductsPortletPersonalization data)
+        public override MvcHtmlString Content(HtmlHelper html, ResponsibilityPortletPersonalization data)
         {
             var fNotFound = new Func<MvcHtmlString>(() =>
             {
@@ -64,12 +58,12 @@ namespace Prolog.Web.Portlets
 
             return data == null
                 ? fNotFound()
-                : RenderContentAction(html, "ProductsPortlet", "Products", RouteProvider.AreaName, data);
+                : RenderContentAction(html, "ResponsibilityPortlet", "Products", RouteProvider.AreaName, data);
         }
 
-        public override MvcHtmlString Settings(HtmlHelper html, ProductsPortletPersonalization data, string path)
+        public override MvcHtmlString Settings(HtmlHelper html, ResponsibilityPortletPersonalization data, string path)
         {
-            return RenderSettingsPartialView(html, "Portlets/ProductsPortlet/Personalization", data);
+            return RenderSettingsPartialView(html, "Portlets/ResponsibilityPortlet/Personalization", data);
         }
 
         protected override Permission PortletPermission()
@@ -81,18 +75,15 @@ namespace Prolog.Web.Portlets
         {
             get
             {
-                return true;
+                return false;
             }
         }
 
     }
 
     [Serializable]
-    public class ProductsPortletPersonalization : PortletPersonalization
+    public class ResponsibilityPortletPersonalization : PortletPersonalization
     {
-        [Personalization(PersonalizationScope.User)]
-        [HiddenInput(DisplayValue = false)]
-        public User Responsible { get; set; }
 
     }
 }
