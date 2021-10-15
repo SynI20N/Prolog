@@ -71,7 +71,7 @@
             data: info,
             success: function (resultData) {
                 $("#products-portlet-grid").html(resultData);
-                $("#products-portlet-grid").className = "";
+                $("#products-portlet-grid").className = "notloaded";
                 $("#products-portlet-grid").delay(500).addClass("loaded");
             },
             dataType: "html",
