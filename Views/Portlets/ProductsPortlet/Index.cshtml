@@ -71,8 +71,7 @@
             data: info,
             success: function (resultData) {
                 $("#products-portlet-grid").html(resultData);
-                $("#products-portlet-grid").attr("class", "");
-                $("#products-portlet-grid").delay(500).addClass("loaded");
+                $("#products-portlet-grid").delay(1000).animate({ opacity: 1 }, 700);
             },
             dataType: "html",
         });
