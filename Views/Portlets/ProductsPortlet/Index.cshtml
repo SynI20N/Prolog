@@ -70,7 +70,7 @@
             url: 'https://elma.prolog.ltd/Prolog.Web/Products/PortletGrid',
             data: info,
             success: function (resultData) {
-                $("#products-portlet-grid").style.animation = 'none';
+                $("#products-portlet-grid").stop();
                 $("#products-portlet-grid").animate({ opacity: 0 }, 200);
                 $("#products-portlet-grid").html(resultData);
                 $("#products-portlet-grid").animate({ opacity: 1 }, 200);
