@@ -17,6 +17,7 @@
             c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("ViewItem", "Catalogs", new { area = "EleWise.ELMA.BPM.Web.Common", uid = "f5017415-8d76-4d5d-a1d1-89eb73b69c74", id = m.Id }));
             c.For(m => m.Zarezervirovano).Header(Html.Partial("Portlets/ProductsPortlet/Partial/Reservation").ToString()); })
         .WithDefaultSettings(true)
+        .EnableCustomize(true)
         .DefaultColumns()
         .Resizeable(true)
         .Reorderable(true)
