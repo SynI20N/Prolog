@@ -71,7 +71,8 @@
             data: info,
             success: function (resultData) {
                 $("#products-portlet-grid").html(resultData);
-                $("#products-portlet-grid").addClass("load");
+                $("#products-portlet-grid").style += "opacity: 0"
+                $("#products-portlet-grid").delay(500).animate({ opacity: 1 }, 700);
             },
             dataType: "html",
         });
