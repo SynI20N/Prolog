@@ -53,7 +53,7 @@
                     url: 'https://elma.prolog.ltd/Prolog.Web/Products/UpdateDate',
                     data: info,
                     success: function (resultData) {
-                        dateElement.innerHTML = resultData;
+                        dateElement.parentElement.innerHTML = resultData;
                     },
                     dataType: "html"
                 });
