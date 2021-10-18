@@ -10,7 +10,7 @@ namespace Prolog.Web.Global
 {
     public class global
     {
-        private void test(ISaleConfigExt entity)
+        public static void test(ISaleConfigExt entity)
         {
         }
     }
