@@ -18,7 +18,6 @@ C:\C#\Prolog.Web\bin\Microsoft.Web.Infrastructure.dll
 C:\C#\Prolog.Web\bin\System.Web.Mvc.dll
 C:\C#\Prolog.Web\bin\System.Web.Razor.dll
 C:\C#\Prolog.Web\bin\System.Web.WebPages.Deployment.dll
-C:\C#\Prolog.Web\bin\System.Web.WebPages.dll
 C:\C#\Prolog.Web\bin\System.Web.WebPages.Razor.dll
 C:\C#\Prolog.Web\bin\Telerik.Web.Mvc.dll
 C:\C#\Prolog.Web\bin\EleWise.TemplateGenerator.Merged.dll
@@ -89,4 +88,3 @@ C:\C#\Prolog.Web\obj\Release\Prolog.Web.csproj.CoreCompileInputs.cache
 C:\C#\Prolog.Web\obj\Release\Prolog.Web.csproj.CopyComplete
 C:\C#\Prolog.Web\obj\Release\Prolog.Web.dll
 C:\C#\Prolog.Web\obj\Release\Prolog.Web.pdb
-C:\C#\Prolog.Web\bin\System.Web.Helpers.dll
