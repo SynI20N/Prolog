@@ -41,10 +41,9 @@ namespace Prolog.Web.Controllers
             {
                 for (int i = 0; i < statusFilter.Length; i++)
                 {
-                    status = _portalUserObjects.UserStatusPoziciiSpecifikacii.Load(i);
                     if (statusFilter[i] == '1')
                     {
-                        ((TovarFilter)filter.Filter).Status.Add(status);
+                        //((TovarFilter)filter.Filter).Status.Add(status);
                     }
                 }
             }
