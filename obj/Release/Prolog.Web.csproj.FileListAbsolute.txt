@@ -79,11 +79,9 @@ C:\C#\Prolog.Web\bin\FirebirdSql.Data.FirebirdClient.dll
 C:\C#\Prolog.Web\bin\Remotion.Linq.dll
 C:\C#\Prolog.Web\bin\Antlr3.Runtime.dll
 C:\C#\Prolog.Web\bin\Microsoft.Web.XmlTransform.dll
-C:\C#\Prolog.Web\bin\System.Web.Helpers.xml
 C:\C#\Prolog.Web\bin\System.Web.Razor.xml
 C:\C#\Prolog.Web\bin\System.Web.WebPages.Deployment.xml
 C:\C#\Prolog.Web\bin\System.Web.WebPages.Razor.xml
-C:\C#\Prolog.Web\bin\ru\System.Web.Helpers.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.Razor.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\C#\Prolog.Web\bin\ru\System.Web.WebPages.Razor.resources.dll
