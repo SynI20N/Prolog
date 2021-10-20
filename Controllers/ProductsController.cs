@@ -41,7 +41,7 @@ namespace Prolog.Web.Controllers
             {
                 for (int i = 0; i < statusFilter.Length; i++)
                 {
-                    status = _portalUserObjects.UserStatusPoziciiSpecifikacii.Load(getStatusId(i));
+                    status = _portalUserObjects.UserStatusPoziciiSpecifikacii.Load(i);
                     if (statusFilter[i] == '1')
                     {
                         ((TovarFilter)filter.Filter).Status.Add(status);
@@ -53,23 +53,11 @@ namespace Prolog.Web.Controllers
             return PartialView("Portlets/ProductsPortlet/Grid", list);
         }
 
-        private long getStatusId(int i)
-        {
-            if (i == 5)
-            {
-                return 102;
-            }
-            else
-            {
-                return i;
-            }
-        }
-
         [HttpPost]
         public ActionResult UpdateStatus(long? status, long? id)
         {
             Tovar product = _portalUserObjects.UserTovar.Load(id.Value);
-            product.Status = _portalUserObjects.UserStatusPoziciiSpecifikacii.Load(status.Value);
+            product.StatusNew = (ProductStatus)status.Value;
             product.Save();
 
             return PartialView("Portlets/ProductsPortlet/Partial/Status", product);

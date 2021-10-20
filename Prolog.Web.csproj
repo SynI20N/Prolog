@@ -167,6 +167,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Prolog.css" />
     <Content Include="Images\code.png" />
     <Content Include="Images\x24\help.png" />
     <Content Include="Images\x24\reservation.png" />
@@ -206,7 +207,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\WorksController.cs" />
-    <Compile Include="Global\global.cs" />
     <Compile Include="Menu\MenuItemProvider.cs" />
     <Compile Include="Models\ProductsPortletModel.cs" />
     <Compile Include="Portlets\ProductsPortlet.cs" />
