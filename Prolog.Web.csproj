@@ -129,10 +129,8 @@
     <Reference Include="System.Web">
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System.Web.Helpers">
       <HintPath>..\DLL's\System.Web.Helpers.dll</HintPath>
-      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -191,7 +189,6 @@
     <Content Include="Views\Portlets\ResponsibilityPortlet\Index.cshtml" />
     <Content Include="Views\Portlets\ResponsibilityPortlet\Grid.cshtml" />
     <Content Include="Views\Portlets\ResponsibilityPortlet\Personalization.cshtml" />
-    <None Include="packages.config" />
     <Content Include="Views\Portlets\ProductsPortlet\Partial\Reservation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
