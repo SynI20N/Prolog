@@ -34,7 +34,7 @@ namespace Prolog.Web.Controllers
         public ActionResult PortletGrid(GridCommand command, long? filterId, string statusFilter)
         {
             var filter = CreateFilter(filterId);
-            string query = filter.Filter.Query;
+            //string query = filter.Filter.Query;
             IUser user = _portalUser.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             if (statusFilter != null)
@@ -43,11 +43,11 @@ namespace Prolog.Web.Controllers
                 {
                     if (statusFilter[i] == '1')
                     {
-                        query = "StatusNew = " + i.ToString() + "AND";
+                        filter.Filter.Query = "StatusNew = " + i.ToString();//+ "AND";
                     }
                 }
             }
-            query.Substring(filter.Filter.Query.Length - 3);
+            //query.Substring(filter.Filter.Query.Length - 3);
             var list = CreateGridData(command, filter);
             
             return PartialView("Portlets/ProductsPortlet/Grid", list);
