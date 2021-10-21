@@ -33,7 +33,7 @@ namespace Prolog.Web.Controllers
         [CustomGridAction]
         public ActionResult PortletGrid(GridCommand command, long? filterId, string statusFilter)
         {
-            var filter = CreateFilter(filterId);
+            //var filter = CreateFilter(filterId);
             //IUser user = _portalUser.GetCurrentUser();
             //((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             /*if (statusFilter != null)
@@ -46,9 +46,9 @@ namespace Prolog.Web.Controllers
                     }
                 }
             }*/
-            var list = CreateGridData(command, filter);
-
-            return PartialView("Portlets/ProductsPortlet/Grid", list);
+            //var list = CreateGridData(command, filter);
+            return PartialView("Home/Index");
+            //eturn PartialView("Portlets/ProductsPortlet/Grid", list);
         }
 
         [HttpPost]
