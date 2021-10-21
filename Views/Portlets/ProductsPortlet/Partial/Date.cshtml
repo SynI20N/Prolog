@@ -13,7 +13,7 @@
         var now = DateTime.Now;
         var days = (Model.Data.Value - now).Days;
         var dateLabel = Model.Data.Value.ToShortDateString();
-        var required = !(Model.StatusNew == 4 || Model.StatusNew == 5);
+        var required = !((int)Model.StatusNew == 4 || (int)Model.StatusNew == 5);
 
         if (required && days >= 1 && days < 14)
         {

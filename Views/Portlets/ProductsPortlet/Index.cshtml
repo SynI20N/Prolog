@@ -35,7 +35,7 @@
 
 <div id="products-portlet-grid" class="loaded">
 
-    @Html.Action("PortletGrid", "Products", new { area = RouteProvider.AreaName, statusFilter = "111100", filterId = 2601 })
+    @Html.Action("PortletGrid", "Products", new { area = RouteProvider.AreaName, statusFilter = "111100", filterId = 8501 })
 
 </div>
 
@@ -61,7 +61,7 @@
             }
         }
 
-        var info = { statusFilter: s, filterId: 2601};
+        var info = { statusFilter: s, filterId: 8501};
         $.ajax({
             type: "GET",
             url: 'https://elma.prolog.ltd/Prolog.Web/Products/PortletGrid',

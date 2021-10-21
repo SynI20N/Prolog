@@ -42,7 +42,7 @@ namespace Prolog.Web.Controllers
                 {
                     if (statusFilter[i] == '1')
                     {
-                        filter.Filter.Query = "StatusNew = 0";
+                        filter.Filter.Query = "StatusNew = " + i.ToString() + "AND";
                     }
                 }
             }
