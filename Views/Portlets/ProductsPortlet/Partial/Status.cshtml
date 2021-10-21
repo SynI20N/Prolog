@@ -1,4 +1,5 @@
 ﻿@model Tovar
+@using EleWise.ELMA.Model.Common
 @using EleWise.ELMA.ConfigurationModel
 
 @{
@@ -19,7 +20,7 @@
         }
     }
     <br>
-    <span style="font-size: 12px">@Model.StatusNew</span>
+    <span style="font-size: 12px">@ModelHelper.GetEnumDisplayName(Model.StatusNew)</span>
 </div>
 
 
