@@ -5,8 +5,6 @@ using EleWise.ELMA.Security.Models;
 using EleWise.ELMA.Web.Mvc.Attributes;
 using Prolog.Web.Models;
 using Prolog.Web.Portlets;
-using static System.Enum;
-using System.Linq;
 using System.Web.Mvc;
 using Telerik.Web.Mvc;
 using static EleWise.ELMA.API.PublicAPI.ObjectsApiRoot;
@@ -44,7 +42,8 @@ namespace Prolog.Web.Controllers
                 {
                     if (statusFilter[i] == '1')
                     {
-                        ((TovarFilter)filter.Filter).StatusNew.Add((ProductStatus)i);
+                        ProductStatus status = (ProductStatus)i;
+                        ((TovarFilter)filter.Filter).StatusNew.Add(status);
                     }
                 }
             }
