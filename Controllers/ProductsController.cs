@@ -36,7 +36,7 @@ namespace Prolog.Web.Controllers
             var filter = CreateFilter(filterId);
             string query = filter.Filter.Query;
             IUser user = _portalUser.GetCurrentUser();
-            filter.Filter.Query += "Otvetstvennyy = 1 OR";
+            filter.Filter.Query += "Otvetstvennyy = 1 AND(";
             if (statusFilter != null)
             {
                 for (int i = 0; i < statusFilter.Length; i++)
@@ -48,6 +48,7 @@ namespace Prolog.Web.Controllers
                 }
             }
             query.Substring(filter.Filter.Query.Length - 3);
+            query += ")";
             var list = CreateGridData(command, filter);
             
             return PartialView("Portlets/ProductsPortlet/Grid", list);
