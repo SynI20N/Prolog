@@ -1031,15 +1031,15 @@ td.gspanning div {
     box-shadow: 2px 2px 1px black;
 }
 
-    .products-status-filter:hover {
-        border: 2px solid SteelBlue;
-        cursor: pointer;
-    }
+.products-status-filter:hover {
+    border: 2px solid SteelBlue;
+    cursor: pointer;
+}
 
-    .products-status-filter:active {
-        transform: translateY(2px);
-        box-shadow: none;
-    }
+.products-status-filter:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
 
 .products-status-filter-pushed {
     background-color: #d4e7fd;

@@ -5,6 +5,8 @@ using EleWise.ELMA.Security.Models;
 using EleWise.ELMA.Web.Mvc.Attributes;
 using Prolog.Web.Models;
 using Prolog.Web.Portlets;
+using static System.Enum;
+using System.Linq;
 using System.Web.Mvc;
 using Telerik.Web.Mvc;
 using static EleWise.ELMA.API.PublicAPI.ObjectsApiRoot;
@@ -33,7 +35,6 @@ namespace Prolog.Web.Controllers
         [CustomGridAction]
         public ActionResult PortletGrid(GridCommand command, long? filterId, string statusFilter)
         {
-            IStatusPoziciiSpecifikacii status;
             var filter = CreateFilter(filterId);
             IUser user = _portalUser.GetCurrentUser();
             ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);

@@ -13,7 +13,7 @@
         {
             <button class="prolog-butten-left" value='@i' onclick="save(value, '@Model.Id', this)">C</button>
         }
-        <button class="prolog-butten-centr" value='@Model.StatusNew' onclick="save(value, '@Model.Id', this)">C</button>
+        <button class="prolog-butten-centr" value='@(int)Model.StatusNew' onclick="save(value, '@Model.Id', this)">C</button>
         for (int i = count + 1; i < 6; i++)
         {
             <button class="prolog-butten-right" value='@i' onclick="save(value, '@Model.Id', this)">C</button>
