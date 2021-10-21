@@ -34,8 +34,8 @@ namespace Prolog.Web.Controllers
         public ActionResult PortletGrid(GridCommand command, long? filterId, string statusFilter)
         {
             var filter = CreateFilter(filterId);
-            IUser user = _portalUser.GetCurrentUser();
-            ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
+            //IUser user = _portalUser.GetCurrentUser();
+            //((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             /*if (statusFilter != null)
             {
                 for (int i = 0; i < statusFilter.Length; i++)
