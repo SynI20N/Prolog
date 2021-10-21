@@ -36,7 +36,7 @@ namespace Prolog.Web.Controllers
             var filter = CreateFilter(filterId);
             string query = filter.Filter.Query;
             IUser user = _portalUser.GetCurrentUser();
-            ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
+            filter.Filter.Query += "Otvetstvennyy = " + user.Id;
             if (statusFilter != null)
             {
                 for (int i = 0; i < statusFilter.Length; i++)
