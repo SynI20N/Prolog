@@ -42,7 +42,7 @@ namespace Prolog.Web.Controllers
                 {
                     if (statusFilter[i] == '1')
                     {
-                        ProductStatus status = (ProductStatus)i;
+                        ProductStatus status = (ProductStatus)0;
                         ((TovarFilter)filter.Filter).StatusNew.Add(status);
                     }
                 }
