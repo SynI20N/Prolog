@@ -11,11 +11,13 @@
 
     @(Html.FilterDynamicGrid(Model)
         .WithDefaultSettings()
-        .Columns(c => {
+        .Columns(c =>
+        {
             c.For(m => m.StatusNew).Template(m => m.StatusNew != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Status", m) : MvcHtmlString.Empty);
             c.For(m => m.Data).Template(m => m.Data != null ? Html.Partial("Portlets/ProductsPortlet/Partial/Date", m) : MvcHtmlString.Empty);
-            //c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("ViewItem", "Catalogs", new { area = "EleWise.ELMA.BPM.Web.Common", uid = "f5017415-8d76-4d5d-a1d1-89eb73b69c74", id = m.Id }));
-            //c.For(m => m.Zarezervirovano).Header(Html.Partial("Portlets/ProductsPortlet/Partial/Reservation").ToString()); })
+        })
+        //c.For(m => m.KratkoeNazvanie).Link(m => Url.Action("ViewItem", "Catalogs", new { area = "EleWise.ELMA.BPM.Web.Common", uid = "f5017415-8d76-4d5d-a1d1-89eb73b69c74", id = m.Id }));
+        //c.For(m => m.Zarezervirovano).Header(Html.Partial("Portlets/ProductsPortlet/Partial/Reservation").ToString()); })
         .WithDefaultSettings(true)
         .EnableCustomize(true)
         .DefaultColumns()
