@@ -15,7 +15,7 @@
             @foreach (var s in Enum.GetValues(ProductStatus.New.GetType()))
             {
                 <td>
-                    <button class="products-status-filter" onclick="changeState(this)">@ModelHelper.GetEnumDisplayName(s)</button>
+                    <button class="products-status-filter" onclick="changeState(this); redraw();">@ModelHelper.GetEnumDisplayName(s)</button>
                 </td>
             }
         </tr>
@@ -23,13 +23,10 @@
     <br>
 </div>
 
-<div id="products-portlet-grid" class="loaded">
-
-    @Html.Action("PortletGrid", "Products", new { area = RouteProvider.AreaName, statusFilter = "0", filterId = 8501 })
-
-</div>
+<div id="products-portlet-grid" class="loaded"></div>
 
 <script>
+    redraw();
     function changeState(element) {
         if (element.className == "products-status-filter") {
             element.className += " products-status-filter-pushed";
@@ -37,6 +34,8 @@
         else {
             element.className = "products-status-filter";
         }
+    }
+    function redraw() {
 
         var filters = $('[class*="products-status-filter"]');
         var i = 0;
