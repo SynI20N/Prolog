@@ -36,18 +36,16 @@ namespace Prolog.Web.Controllers
             var filter = CreateFilter(filterId);
             var list = CreateGridData(command, filter);
             IUser user = _portalUser.GetCurrentUser();
-            list.DataFilter.Filter.Query += "AND ( Otvetstvennyy = " + user.Id + " AND (";
-            if (statusFilter != null)
+
+            ((TovarFilter)list.DataFilter.Filter).Otvetstvennyy.Add(user);
+            /*for (int i = 0; i < statusFilter.Length; i++)
             {
-                for (int i = 0; i < statusFilter.Length; i++)
+                if (statusFilter[i] == '1')
                 {
-                    if (statusFilter[i] == '1')
-                    {
-                        list.DataFilter.Filter.Query += "StatusNew = " + i + " OR ";
-                    }
+                    list.DataFilter.Filter.Query += "StatusNew = " + i + " OR ";
                 }
             }
-            list.DataFilter.Filter.Query += " ))";
+            list.DataFilter.Filter.Query += " ))";*/
             
             return PartialView("Portlets/ProductsPortlet/Grid", list);
         }
