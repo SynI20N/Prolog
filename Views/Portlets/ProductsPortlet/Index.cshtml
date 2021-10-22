@@ -6,7 +6,7 @@
 @model ProductsPortletModel
 
 <div class="products-filter-help">
-    <input type="image" src="https://elma.prolog.ltd/Modules/Prolog.Web/Images/x24/help.png" alt="Кнопка «input»">
+    <input type="image" src="https://elma.prolog.ltd/Modules/Prolog.Web/Images/x24/help.png" onclick="openDocumentation(this)" alt="Кнопка «input»">
 </div>
 
 <div class="products-filter-wrap">
@@ -64,5 +64,13 @@
             },
             dataType: "html",
         });
+    }
+    function openDocumentation(element) {
+        if (element.html.contains("iframe")) {
+            element.html("");
+        }
+        else {
+            element.html("<iframe scr=\"/SDK.Action/Preview/View/54b92a3c-30e2-4139-adbb-0cb7b16af6b7/index.html\">Помощь</frame>");
+        }
     }
 </script>
