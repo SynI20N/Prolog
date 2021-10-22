@@ -97,11 +97,9 @@
         closeWindow(this, true);
         refreshPopup('PreviewPopup', '/SDK.Action/BinaryFiles/PreviewPopup/54b92a3c-30e2-4139-adbb-0cb7b16af6b7?uniqueGlobalPrefix=3c9b849c_355d_4464_804c_24c6a4fe3d7a&canLoadFile=True', null, 'Инструкция исполнителя по изделию-4.docx', 'PreviewAjaxBinding("c0e4ed28-7ef0-4a36-b9dd-3391a3db8e50", "3c9b849c_355d_4464_804c_24c6a4fe3d7a54b92a3c_30e2_4139_adbb_0cb7b16af6b7")', null, null, true, true); return false;;
     }
-    function getCookie(name) {
-        let matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches[1]) : undefined;
+    function getCookie(n) {
+        let a = `; ${document.cookie}`.match(`;\\s*${n}=([^;]+)`);
+        return a ? a[1] : '';
     }
     function delete_cookie(name) {
         document.cookie = name + '=; Path=/ContentArea/Page; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
