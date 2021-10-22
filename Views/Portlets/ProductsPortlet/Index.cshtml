@@ -26,6 +26,27 @@
 <div id="products-portlet-grid" class="loaded"></div>
 
 <script>
+    var i = 0;
+    var statusFilters = $('[class*="products-status-filter"]');
+    for (i = 0; i < statusFilters.length; i++) {
+        if (document.cookie.indexOf("ProductFilter" + parseInt(i)) == -1) {
+            let name = "ProductFilter" + parseInt(i);
+            if (statusFilters[i].className.includes("pushed")) {
+                document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent('1') + '; Expires=Thu, 01 Jan 2025 00:00:01 GMT;';
+            }
+            else {
+                document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent('0') + '; Expires=Thu, 01 Jan 2025 00:00:01 GMT;';
+            }
+        }
+        else {
+            if (getCookie("ProductFilter" + parseInt(i) == '1')) {
+                statusFilters[i].className += " products-status-filter-pushed";
+            }
+            else {
+                statusFilters[i].className = "products-status-filter";
+            }
+        }
+    }
     redraw();
     function changeState(element) {
         if (element.className == "products-status-filter") {
@@ -67,5 +88,14 @@
     function openDocumentation() {
         closeWindow(this, true);
         refreshPopup('PreviewPopup', '/SDK.Action/BinaryFiles/PreviewPopup/54b92a3c-30e2-4139-adbb-0cb7b16af6b7?uniqueGlobalPrefix=3c9b849c_355d_4464_804c_24c6a4fe3d7a&canLoadFile=True', null, 'Инструкция исполнителя по изделию-4.docx', 'PreviewAjaxBinding("c0e4ed28-7ef0-4a36-b9dd-3391a3db8e50", "3c9b849c_355d_4464_804c_24c6a4fe3d7a54b92a3c_30e2_4139_adbb_0cb7b16af6b7")', null, null, true, true); return false;;
+    }
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    function delete_cookie(name) {
+        document.cookie = name + '=; Path=/ContentArea/Page; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 </script>
