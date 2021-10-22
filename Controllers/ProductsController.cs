@@ -36,14 +36,14 @@ namespace Prolog.Web.Controllers
             var filter = CreateFilter(filterId);
             string query = filter.Filter.Query;
             IUser user = _portalUser.GetCurrentUser();
-            filter.Filter.Query += "Otvetstvennyy = 1 AND(";
+            query += "Otvetstvennyy = " + user.Id + " AND(";
             if (statusFilter != null)
             {
                 for (int i = 0; i < statusFilter.Length; i++)
                 {
                     if (statusFilter[i] == '1')
                     {
-                        filter.Filter.Query += "StatusNew = " + i.ToString() + "OR";
+                        query += "StatusNew = " + i.ToString() + "OR";
                     }
                 }
             }
