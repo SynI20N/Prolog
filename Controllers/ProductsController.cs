@@ -34,21 +34,18 @@ namespace Prolog.Web.Controllers
         public ActionResult PortletGrid(GridCommand command, long? filterId, string statusFilter)
         {
             var filter = CreateFilter(filterId);
-            string query = filter.Filter.Query;
             IUser user = _portalUser.GetCurrentUser();
-            query += "Otvetstvennyy = " + user.Id + " AND(";
+            ((TovarFilter)filter.Filter).Otvetstvennyy.Add(user);
             if (statusFilter != null)
             {
                 for (int i = 0; i < statusFilter.Length; i++)
                 {
                     if (statusFilter[i] == '1')
                     {
-                        query += "StatusNew = " + i + "OR";
+                        ((TovarFilter)filter.Filter).StatusNew.Add(ProductStatus.New);
                     }
                 }
             }
-            query = query.Substring(filter.Filter.Query.Length - 2);
-            query += ")";
             var list = CreateGridData(command, filter);
             
             return PartialView("Portlets/ProductsPortlet/Grid", list);
