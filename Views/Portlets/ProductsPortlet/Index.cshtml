@@ -14,8 +14,9 @@
         <tr>
             @foreach (var s in Enum.GetValues(ProductStatus.New.GetType()))
             {
+                var index = (int)s;
                 <td>
-                    <button class="products-status-filter" onclick="changeState(this); redraw();">@ModelHelper.GetEnumDisplayName(s)</button>
+                    <button id="@index"class="products-status-filter" onclick="changeState(this); redraw();">@ModelHelper.GetEnumDisplayName(s)</button>
                 </td>
             }
         </tr>
@@ -39,7 +40,7 @@
             }
         }
         else {
-            if (getCookie("ProductFilter" + parseInt(i) == '1')) {
+            if (getCookie("ProductFilter" + parseInt(i)) == '1') {
                 statusFilters[i].className += " products-status-filter-pushed";
             }
             else {
@@ -49,10 +50,17 @@
     }
     redraw();
     function changeState(element) {
+        let name = "ProductFilter" + parseInt(element.Id);
         if (element.className == "products-status-filter") {
+            if (document.cookie.indexOf(name) != -1) {
+                document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent('1') + '; Expires=Thu, 01 Jan 2025 00:00:01 GMT;';
+            }
             element.className += " products-status-filter-pushed";
         }
         else {
+            if (document.cookie.indexOf(name) != -1) {
+                document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent('0') + '; Expires=Thu, 01 Jan 2025 00:00:01 GMT;';
+            }
             element.className = "products-status-filter";
         }
     }
