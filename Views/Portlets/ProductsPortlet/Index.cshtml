@@ -66,11 +66,11 @@
         });
     }
     function openDocumentation(element) {
-        if (element.html.contains("iframe")) {
-            element.html("");
+        if (element.innerHTML.contains("iframe")) {
+            element.innerHTML = "";
         }
         else {
-            element.html("<iframe scr=\"/SDK.Action/Preview/View/54b92a3c-30e2-4139-adbb-0cb7b16af6b7/index.html\">Помощь</frame>");
+            element.append("<iframe scr=\"/SDK.Action/Preview/View/54b92a3c-30e2-4139-adbb-0cb7b16af6b7/index.html\">Помощь</frame>");
         }
     }
 </script>
