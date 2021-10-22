@@ -43,11 +43,11 @@ namespace Prolog.Web.Controllers
                 {
                     if (statusFilter[i] == '1')
                     {
-                        query += "StatusNew = " + i.ToString() + "OR";
+                        query += "StatusNew = " + i + "OR";
                     }
                 }
             }
-            query.Substring(filter.Filter.Query.Length - 3);
+            query = query.Substring(filter.Filter.Query.Length - 2);
             query += ")";
             var list = CreateGridData(command, filter);
             
