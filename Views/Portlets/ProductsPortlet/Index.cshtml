@@ -1,6 +1,8 @@
 ﻿@using Prolog.Web
 @using Prolog.Web.Models
 @using EleWise.ELMA
+@using EleWise.ELMA.Model.Common
+@using EleWise.ELMA.ConfigurationModel
 @model ProductsPortletModel
 
 <div class="products-filter-help">
@@ -10,24 +12,12 @@
 <div class="products-filter-wrap">
     <table class="products-filter">
         <tr>
-            <td>
-                <button class="products-status-filter products-status-filter-pushed" onclick="changeState(this)">Новое</button>
-            </td>
-            <td>
-                <button class="products-status-filter products-status-filter-pushed" onclick="changeState(this)">Принято</button>
-            </td>
-            <td>
-                <button class="products-status-filter products-status-filter-pushed" onclick="changeState(this)">Разработка</button>
-            </td>
-            <td>
-                <button class="products-status-filter products-status-filter-pushed" onclick="changeState(this)">В производстве</button>
-            </td>
-            <td>
-                <button class="products-status-filter" onclick="changeState(this)">В наличии</button>
-            </td>
-            <td>
-                <button class="products-status-filter" onclick="changeState(this)">Отгружено</button>
-            </td>
+            @foreach (var s in Enum.GetValues(ProductStatus))
+            {
+                <td>
+                    <button class="products-status-filter" onclick="changeState(this)">@ModelHelper.GetEnumDisplayName(s)</button>
+                </td>
+            }
         </tr>
     </table>
     <br>
@@ -53,7 +43,7 @@
         var s = "";
 
         for (i = 0; i < filters.length; i++) {
-            if (filters[i].className.includes("pushed"))  {
+            if (filters[i].className.includes("pushed")) {
                 s += "1";
             }
             else {
@@ -61,7 +51,7 @@
             }
         }
 
-        var info = { statusFilter: s, filterId: 2601};
+        var info = { statusFilter: s, filterId: 2601 };
         $.ajax({
             type: "GET",
             url: 'https://elma.prolog.ltd/Prolog.Web/Products/PortletGrid',
