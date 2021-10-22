@@ -66,12 +66,7 @@
         });
     }
     function openDocumentation() {
-        var element = document.getElementById("products-portlet-grid");
-        if (element.innerHTML.includes("iframe")) {
-            element.innerHTML = "";
-        }
-        else {
-            element.innerHTML = "<iframe frameborder=\"0\" scr=\"https://elma.prolog.ltd/SDK.Action/Preview/View/54b92a3c-30e2-4139-adbb-0cb7b16af6b7/index.html\">Помощь</iframe>";
-        }
+        closeWindow(this, true);
+        refreshPopup('PreviewPopup', '/SDK.Action/BinaryFiles/PreviewPopup/54b92a3c-30e2-4139-adbb-0cb7b16af6b7?uniqueGlobalPrefix=3c9b849c_355d_4464_804c_24c6a4fe3d7a&canLoadFile=True', null, 'Инструкция исполнителя по изделию-4.docx', 'PreviewAjaxBinding("c0e4ed28-7ef0-4a36-b9dd-3391a3db8e50", "3c9b849c_355d_4464_804c_24c6a4fe3d7a54b92a3c_30e2_4139_adbb_0cb7b16af6b7")', null, null, true, true); return false;;
     }
 </script>
