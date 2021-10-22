@@ -5,6 +5,7 @@ using EleWise.ELMA.Security.Models;
 using EleWise.ELMA.Web.Mvc.Attributes;
 using Prolog.Web.Models;
 using Prolog.Web.Portlets;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Telerik.Web.Mvc;
 using static EleWise.ELMA.API.PublicAPI.ObjectsApiRoot;
@@ -38,15 +39,15 @@ namespace Prolog.Web.Controllers
             IUser user = _portalUser.GetCurrentUser();
 
             ((TovarFilter)list.DataFilter.Filter).Otvetstvennyy.Add(user);
-            /*for (int i = 0; i < statusFilter.Length; i++)
+            ((TovarFilter)list.DataFilter.Filter).StatusNew = new List<ProductStatus>();
+            for (int i = 0; i < statusFilter.Length; i++)
             {
                 if (statusFilter[i] == '1')
                 {
-                    list.DataFilter.Filter.Query += "StatusNew = " + i + " OR ";
+                    ((TovarFilter)list.DataFilter.Filter).StatusNew.Add((ProductStatus)i);
                 }
             }
-            list.DataFilter.Filter.Query += " ))";*/
-            
+
             return PartialView("Portlets/ProductsPortlet/Grid", list);
         }
 
