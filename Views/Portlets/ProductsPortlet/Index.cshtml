@@ -6,7 +6,7 @@
 @model ProductsPortletModel
 
 <div class="products-filter-help">
-    <input type="image" src="https://elma.prolog.ltd/Modules/Prolog.Web/Images/x24/help.png" onclick="openDocumentation(this)" alt="Кнопка «input»">
+    <input type="image" src="https://elma.prolog.ltd/Modules/Prolog.Web/Images/x24/help.png" onclick="openDocumentation" alt="Кнопка «input»">
 </div>
 
 <div class="products-filter-wrap">
@@ -65,7 +65,8 @@
             dataType: "html",
         });
     }
-    function openDocumentation(element) {
+    function openDocumentation() {
+        var element = document.getElementsByClassName("products-portlet-grid");
         if (element.innerHTML.includes("iframe")) {
             element.innerHTML = "";
         }
