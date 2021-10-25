@@ -28,7 +28,7 @@
 
 <script>
 
-    redraw();
+    redraw_products();
 
     function changeState(element) {
         if (element.className == "products-status-filter") {
@@ -37,10 +37,10 @@
         else {
             element.className = "products-status-filter";
         }
-        redraw(element);
+        redraw_products(element);
     }
 
-    function redraw(element) {
+    function redraw_products(element) {
 
         var filters = $('[class*="products-status-filter"]');
         var i = 0;
