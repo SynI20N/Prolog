@@ -47,12 +47,6 @@
         var s = "";
 
         for (i = 0; i < filters.length; i++) {
-            if (filters[i].className.includes("pushed")) {
-                s += "1";
-            }
-            else {
-                s += "0";
-            }
             if (document.cookie.indexOf("ProductFilter" + parseInt(i)) == -1 || element == filters[i]) {
                 let name = "ProductFilter" + parseInt(i);
                 if (filters[i].className.includes("pushed")) {
@@ -69,6 +63,12 @@
                 else {
                     filters[i].className = "products-status-filter";
                 }
+            }
+            if (filters[i].className.includes("pushed")) {
+                s += "1";
+            }
+            else {
+                s += "0";
             }
         }
 
