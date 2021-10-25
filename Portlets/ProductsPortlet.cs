@@ -24,7 +24,6 @@ namespace Prolog.Web.Portlets
                 profile = PortletProfile.Default;
                 profile.DefaultZone = "Right";
             }
-
             profile.Customizable = false;
             profile.DefaultOrder = 0;
             profile.ImageUrl = RouteProvider.ImagesFolder + "x24/ProductsPortlet.png";
