@@ -833,6 +833,7 @@ td.gspanning div {
 }
 
 .gmainright {
+    width: 70%;
     overflow-x: hidden;
 }
 
