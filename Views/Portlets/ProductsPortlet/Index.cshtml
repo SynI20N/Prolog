@@ -56,10 +56,10 @@
             if (document.cookie.indexOf("ProductFilter" + parseInt(i)) == -1 || element == filters[i]) {
                 let name = "ProductFilter" + parseInt(i);
                 if (filters[i].className.includes("pushed")) {
-                    setCookie(name, '1', { 'expires': 'Thu, 01 Jan 2025 00: 00: 01 GMT' });
+                    setCookie(name, '1');
                 }
                 else {
-                    setCookie(name, '0', { 'expires': 'Thu, 01 Jan 2025 00: 00: 01 GMT' });
+                    setCookie(name, '0');
                 }
             }
             else {
@@ -103,7 +103,7 @@
 
         options = {
             path: '/',
-            ...options
+            expires : 'Thu, 01 Jan 2025 00: 00: 01 GMT'
         };
 
         if (options.expires instanceof Date) {
